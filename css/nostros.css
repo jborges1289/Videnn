@@ -1,0 +1,21 @@
+#promocion{
+	height: 100%;
+	width: 295px;
+	float: left;
+
+}
+#promocion > img{
+	border: 1px solid black;
+	border-radius: 10px;
+}
+#nostros{
+	font-family: arial, "courier new", impact;
+	line-height: 20px;
+	height: 100%;
+	font-style: italic;
+	text-align: justify;
+}
+h1{
+	width: 780px;
+	font-style: italic;
+}

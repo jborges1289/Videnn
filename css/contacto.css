@@ -1,0 +1,65 @@
+#contacto{
+	font-family: arial, "courier new", impact;
+	width: 960px;
+	float: left;
+	height: 100%;
+	padding-bottom: 10px;
+}
+#person{
+	font-size: 14px;
+	font-family: arial, "courier new", impact;
+	width: 300px;
+	float: left;
+}
+#person a{
+	text-decoration: none;
+	color: blue;
+}
+#person > p{
+	height: 100%;
+	margin: 5px;
+}
+.p1{
+	line-height: 18px;
+}
+.p2{
+	line-height: 18px;
+}
+#formulario{
+	font-family: arial, "courier new", impact;
+	font-size: 14px;
+	margin: 0px;
+	font-style: italic;
+	width: 500px;
+	height: 100%;
+	float: right;
+}
+#formulario > p{
+	height: 100%;
+	margin: 0px;	
+}
+fieldset{
+	width: 960px;
+	margin: 0px 0px 0px 0px;
+	border-radius: 15px 10px 15px 10px; 
+}
+.col1{
+	margin: 0px 0px 10px 0px;
+	vertical-align: top;
+}
+.col2{
+	margin: 0px 0px 10px 0px;	
+}
+label{
+	width: 100px;
+	display: inline-block;
+}
+#botom{
+	float: right;
+	margin-right: 50px;
+}
+#mapa{
+	width: 960px;
+	height: 100%;
+	float: left;
+}

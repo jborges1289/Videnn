@@ -1,0 +1,118 @@
+/* 
+    Document   : plantilla1
+    Created on : 11-abr-2013, 11:00:13
+    Author     : juAN
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+body{
+
+
+    /*    background-color: #0066ff;*/
+    background-color: #FFF;
+    /*    background-color: #ff0000;*/
+
+
+}
+
+h1{
+
+    margin-left: -20px;
+    font-family:Verdana, Geneva, sans-serif;
+    font-size: 30px;
+
+}
+
+
+#contenedor{
+
+    background-color: #fff;
+    /*    border-style: solid;
+        border-color:  black ;*/
+    border-radius: 10px;
+    height: 400px; /*alto*/
+    width: 700px;  /*ancho*/
+    margin-top: 100px;
+    margin-left: 270px;
+    vertical-align: central;
+    position: fixed;
+
+
+
+}
+
+#logo{
+
+
+    margin-top: 90px;
+    width: 400px;
+    height: 200px;
+
+}
+
+
+#logo_img{
+
+    width: 450px;
+    height: 200px;
+
+}
+
+#login{
+
+    width: 175px;
+    height: 300px;
+    margin-left: 500px;
+    margin-top: -250px;
+
+
+    color:#006;
+    /*		font-family:"Comic Sans MS", cursive;*/
+
+    font-family:Verdana, Geneva, sans-serif;
+    text-align:center;
+
+    font-size:32px;		
+    padding-bottom:5px;
+    font-weight:bold;
+    font-size:100%;
+
+
+
+}
+
+
+#copyright{
+
+    color: #000;
+    margin-top: 50px;
+    border-radius: 10px;
+    text-align: center;
+    font-family:Verdana, Geneva, sans-serif;
+    font-size: 10px;
+
+
+}
+
+
+input[type="text"]{
+    border-radius: 5px;
+    
+}
+
+
+input[type="submit"]{
+
+    border-radius: 5px;
+
+}
+
+input[type="password"]{
+    border-radius: 5px;
+    
+}
