@@ -24,9 +24,11 @@ public function generarEncabezado(){
 	               <li><a href="/index.php">Inicio</a></li>
 	               <li class="dir" id="active"><a href="./index.php">Cat&aacutelogo</a>
 	                 <ul>
-	                   <li><a href="#">Botones</a></li>
-	                   <li><a href="#">Espectacules</a></li>
-	                   <li><a href="#">Lonas</a></li>
+	                   <li><a href="catalogoBotones.php">Botones</a></li>
+	                   <li><a href="catalogoEspectaculares.php">Espectacules</a></li>
+	                   <li><a href="catalogoLonas.php">Lonas</a></li>
+                           <li><a href="catalogoEstructuras.php">Toldos y Estructuras</a></li>
+                           <li><a href="catalogoOffset.php">Offset</a></li>
 	                   
                      </ul>
                    </li>
