@@ -14,10 +14,19 @@
 	<link rel="stylesheet" href="./css/style.css" />
     <!-- TemplateEndEditable -->
     <link rel="stylesheet" href="./css/catalogo.css" />
+        <link rel="stylesheet" href="./css/styleSlider.css" />
     <script language="JavaScript" src="./js/mostrarProducto.js"></script>
+    <script type="text/javascript" src="./js/jquery-1.3.2.min.js" ></script>
+<script type="text/javascript" src="./js/jquery-ui-1.7.2.custom.min.js" ></script>
+    <script language="JavaScript" src="./js/indexSlider.js"></script>
      <link rel="shortcut icon" href="img/icono_vidden.jpg"/>
     <!-- TemplateBeginEditable name="linksExternos" -->
 	<title>.: Videnn :.</title>
+        <style type="text/css" >
+	#featured .ui-tabs-panel .info{
+		display:none;
+	}
+</style>
 </head>
 <body >
 		<div id="contenedor">
@@ -30,50 +39,63 @@
 
                     
                     ?>
-                    
-                    
-		  <div id="contenido">
-                      
-                      
-                      <!--aaa-->
-			  <div id="categorias">
-			  	<div id="listaCont">
-				  	
-			  	</div>
-			  	<div id="categoria1" class="productos">
-				  	<div  id="activado" class="producto">
-				  		<img onclick="javascript:mostrar_ventana('159854','Cacharel','$500','img/Damas/1.png');" width="200px" height="150px" src="img/Damas/1.png">
-				  	</div>
-				  	<div class="producto">
-				  		<img onclick="javascript:mostrar_ventana('1243','Cacharel','$600','img/Damas/2.png');" width="200px" height="150px" src="img/Damas/2.png">
-				  	</div>
-				  	<div class="producto">
-				  		<img onclick="javascript:mostrar_ventana('134536','Cacharel','$700','img/Damas/3.png');" width="200px" height="150px" src="img/Damas/3.png">
-				  	</div>
-				  	<div class="producto">
-				  		<img onclick="javascript:mostrar_ventana('234421','Cacharel','$800','img/Damas/4.png');" width="200px" height="150px" src="img/Damas/4.png">
-				  	</div>
-				  	<div class="producto">
-				  		<img onclick="javascript:mostrar_ventana('63321','Cacharel','$900','img/Damas/5.png');" width="200px" height="150px" src="img/Damas/5.png">
-				  	</div>
-				  	<div class="producto">
-				  		<img onclick="javascript:mostrar_ventana('1231','Cacharel','$580','img/Damas/6.png');" width="200px" height="150px" src="img/Damas/6.png">
-				  	</div>
-				  	<div class="producto">
-				  		<img onclick="javascript:mostrar_ventana('7531','Cacharel','$500','img/Damas/7.png');" width="200px" height="150px" src="img/Damas/7.png">
-				  	</div>
-				  	<div class="producto">
-				  		<img onclick="javascript:mostrar_ventana('82381','Cacharel','$500','img/Damas/8.png');" width="200px" height="150px" src="img/Damas/8.png">
-				  	</div>
-				  	<div class="producto">
-				  		<img onclick="javascript:mostrar_ventana('831','Cacharel','$500','img/Damas/9.png');" width="200px" height="150px" src="img/Damas/9.png">
-				  	</div>
-			  	</div>
-			  </div>
-		  </div>
-		  <!-- TemplateEndEditable -->
-		  <div id="footer">
-		  </div>
-		</div>     
+
+                    <html>     
+                        <body>
+
+
+		
+		<div id="featured" >
+		  <ul class="ui-tabs-nav">
+	        <li class="ui-tabs-nav-item ui-tabs-selected" id="nav-fragment-1"><a href="#fragment-1"><img src="img/botones/pines1.jpg" alt="" /><span>Botones para esas ocaciones especiales</span></a></li>
+	        <li class="ui-tabs-nav-item" id="nav-fragment-2"><a href="#fragment-2"><img src="img/espectaculares/espec1.jpg" alt="" /><span>Espectaculares para darte a conocer</span></a></li>
+	        <li class="ui-tabs-nav-item" id="nav-fragment-3"><a href="#fragment-3"><img src="img/lonas/lona1.jpg" alt="" /><span>Los mejores diseños para las lonas que desees</span></a></li>
+	        <li class="ui-tabs-nav-item" id="nav-fragment-4"><a href="#fragment-4"><img src="img/offset/offset1.jpg" alt="" /><span>Expande tu negocio con volantes u otros medios</span></a></li>
+	      </ul>
+
+	    <!-- First Content -->
+	    <div id="fragment-1" class="ui-tabs-panel" style="">
+			<img src="img/botones/pines1.jpg" alt="" />
+			 <div class="info" >
+				<a class="hideshow" href="#" >Ocultar</a>
+				<h2><a href="#" >Botones para esas ocaciones especiales</a></h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tincidunt condimentum lacus. Pellentesque ut diam....<a href="#" >read more</a></p>
+			 </div>
+	    </div>
+
+	    <!-- Second Content -->
+	    <div id="fragment-2" class="ui-tabs-panel ui-tabs-hide" style="">
+			<img src="img/espectaculares/espec1.jpg" alt="" />
+			 <div class="info" >
+				<a class="hideshow" href="#" >Ocultar</a>
+				<h2><a href="#" >Espectaculares para darte a conocer</a></h2>
+				<p>Vestibulum leo quam, accumsan nec porttitor a, euismod ac tortor. Sed ipsum lorem, sagittis non egestas id, suscipit....<a href="#" >read more</a></p>
+			 </div>
+	    </div>
+
+	    <!-- Third Content -->
+	    <div id="fragment-3" class="ui-tabs-panel ui-tabs-hide" style="">
+			<img src="img/lonas/lona1.jpg" alt="" />
+			 <div class="info" >
+				<a class="hideshow" href="#" >Ocultar</a>
+				<h2><a href="#" >Los mejores diseños para las lonas que desees</a></h2>
+				<p>liquam erat volutpat. Proin id volutpat nisi. Nulla facilisi. Curabitur facilisis sollicitudin ornare....<a href="#" >read more</a></p>
+	         </div>
+	    </div>
+
+	    <!-- Fourth Content -->
+	    <div id="fragment-4" class="ui-tabs-panel ui-tabs-hide" style="">
+			<img src="img/offset/offset1.jpg" alt="" />
+			 <div class="info" >
+				<a class="hideshow" href="#" >Ocultar</a>
+				<h2><a href="#" >Expande tu negocio con volantes u otros medios</a></h2>
+				<p>Quisque sed orci ut lacus viverra interdum ornare sed est. Donec porta, erat eu pretium luctus, leo augue sodales....<a href="#" >read more</a></p>
+	         </div>
+	    </div>
+
+		</div>
+	
+
+
 </body>
 </html>
