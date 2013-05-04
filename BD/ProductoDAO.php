@@ -1,5 +1,6 @@
 <?php
-
+ include_once '../BD/ConexionGeneral.php';
+ include_once '../videnn/Producto.php';
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -10,8 +11,100 @@
  *
  * @author juAN
  */
-class ProductoDAO {
+class ProductoDAO extends ConexionGeneral{
     //put your code here
+
+    
+    public function seleccionarProductoPorId($id_producto) {
+        $conexion=$this->abrirConexion();      
+         $sentencia = "SELECT * FROM productos WHERE id_producto ='" . mysql_real_escape_string($id_producto) . "'";
+        $resultado = $this->ejecutarConsulta($sentencia, $conexion);
+        $usuario=null;
+        while ($fila = mysql_fetch_array($resultado)) {
+            $producto = new Producto($fila["id_producto"],$fila["nombre_producto"], $fila["descripcion"], $fila["precio_unitario"], $fila["url_imagen"]);
+            return $usuario;
+        }
+        $this->cerrarConexion($conexion);        
+        return $producto;    
+    }
+
+    public function insertarProducto($nombre, $descripcion, $precio, $url) {
+        $registroExitoso = false;
+        $conexion = $this->abrirConexion();
+        $sentencia = "INSERT INTO productos (nombre_producto, descripcion, precio_unitario, url_imagen)
+            VALUES ('" . $nombre . "', '" . $descripcion . "', '".$precio."', '" . $url . "')";
+        
+        if ($this->ejecutarConsulta($sentencia, $conexion)) {
+            $registroExitoso = true;
+        }
+        $this->cerrarConexion($conexion);
+        return $registroExitoso;
+    }
+
+    public function actualizarProducto($nombre, $descripcion, $precio, $url) {
+        $conexion = $this->abrirConexion();        
+        $sentencia = "UPDATE productos SET  nombre_producto ='" . $nombre . "', descripcion ='" .$descripcion. "',
+            precio_unitario = '" . $precio. "', url_imagen ='". $url ."' ";
+        
+        $resultado = $this->ejecutarConsulta($sentencia, $conexion);
+        $this->cerrarConexion($conexion);
+        return $resultado;
+    }
+
+    public function seleccionarTodosProductos($condicion) {
+        $conexion = $this->abrirConexion();        
+        $sentencia = "SELECT * FROM productos $condicion ORDER BY nombre ASC";
+        $resultado_peticion = $this->ejecutarConsulta($sentencia, $conexion);
+
+        $indice = 0;
+        $productos = array();
+        while ($fila = mysql_fetch_array($resultado_peticion)) {          
+            $productos[$indice] = new Producto($fila["id_producto"],$fila["nombre_producto"], $fila["descripcion"], $fila["precio_unitario"], $fila["url_imagen"]);
+            $indice++;
+        }
+        $this->cerrarConexion($conexion);
+        return $productos;
+    }
+
+    public function eliminarProducto($id_producto) {
+        $conexion = $this->abrirConexion();
+        $productoEliminado = false;
+        $sentencia = "DELETE FROM productos 
+            WHERE id_producto = '" . mysql_real_escape_string($id_producto) . "'";
+//        echo $sentencia;
+        $resultado = $this->ejecutarConsulta($sentencia, $conexion);
+        if (!$resultado) {
+            $cerror = "Ocurrió un error al acceder a la base de datos.<br>";
+            $cerror .= "SQL: $sentencia <br>";
+            $cerror .= "Descripción: " . mysql_error($conexion);
+            die($cerror);
+        } else {
+            if (mysql_affected_rows($conexion) >= 1)
+                $productoEliminado = true;
+        }
+        $this->cerrarConexion($conexion);
+        return $productoEliminado;
+    }
+
+    public function existeProducto($nombre) {
+        $conexion = $this->abrirConexion();
+        $existeProducto = true;
+        $sentencia = "SELECT * FROM productos WHERE nombre_producto = '" . mysql_real_escape_string($nombre) . "'";
+        $resultado = $this->ejecutarConsulta($sentencia, $conexion);
+        if (!$resultado) {
+            $cerror = "No fue posible recuperar la información de la base de datos.<br>";
+            $cerror .= "SQL: $sentencia <br>";
+            $cerror .= "Descripción: " . mysql_error($conexion);
+            die($cerror);
+        } else {
+            if (mysql_num_rows($resultado) === 0)
+                $existeProducto = false;
+        }        
+        return $existeProducto;
+    }
+    
+    
 }
 
 ?>
+

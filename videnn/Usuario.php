@@ -14,46 +14,40 @@ class Usuario {
 
     //put your code here
 
-    private $correo;
+    private $id_usuario;
     private $nombre;
-    private $apellido;
+    private $usuario;
     private $contrasenia;
-    private $fecha_n;
-    private $sexo;
-    private $telefono;
-    private $tipo;
+   
+    public function __construct($id_usuario, $nombre, $usuario, $contrasenia) {
 
-    public function __construct($correo, $nombre, $apellido, $contrasenia, $fecha_n, $sexo, $telefono, $tipo) {
-
-        $this->correo = $correo;
+        $this->id_usuario = $id_usuario;
         $this->nombre = $nombre;
-        $this->apellido = $apellido;
+        $this->usuario = $usuario;
         $this->contrasenia = $contrasenia;
-        $this->fecha_n = $fecha_n;
-        $this->sexo = $sexo;
-        $this->telefono = $telefono;
-        $this->tipo = $tipo;
+        
+       
     }
-
     
     
     /*Getters*/
+  
+public function getId_Usuario(){
     
-    public function getCorreo() {
-
-        return $this->correo;
-    }
-
+    return $this->id_usuario;
+}
+    
+    
     public function getNombre() {
 
         return $this->nombre;
     }
-
-    public function getApellido() {
-
-        return $this->apellido;
+    
+    public function getUsuario(){
+        
+        return $this->usuario;
     }
-
+    
     
     public function getContrasenia(){
         
@@ -61,67 +55,33 @@ class Usuario {
     }
     
     
-    public function getFecha_n() {
+   
 
-        return $this->fecha_n;
-    }
 
-    public function getSexo() {
-
-        return $this->sexo;
-    }
-
-    public function getTelefono() {
-
-        return $this->telefono;
-    }
-
-    public function getTipo() {
-
-        return $this->tipo;
-    }
-
-    
-    
     
     /*Setters*/
-    public function setCorreo($correo) {
-        $this->correo = $correo;
+    public function setId_Usuario($id_usuario) {
+        $this->correo = $id_usuario;
     }
 
     public function setNombre($nombre) {
         $this->nombre = $nombre;
     }
 
-    public function setApellido($apellido) {
-        $this->apellido = $apellido;
+   
+    public function setUsuario($usuario){
+        
+        $this->usuario = $usuario;
     }
-
+            
     
     public function setContrasenia($contrasenia){
         
         $this->contrasenia = $contrasenia;
     }
     
+ 
     
-    public function setFecha_n($fecha_n) {
-
-        $this->fecha_n = $fecha_n;
-    }
-
-    public function setSexo($sexo) {
-
-        $this->sexo = $sexo;
-    }
-
-    public function setTelefono($telefono) {
-
-        $this->telefono = $telefono;
-    }
-
-    public function setTipo($tipo) {
-        $this->tipo = $tipo;
-    }
 
 }
 
