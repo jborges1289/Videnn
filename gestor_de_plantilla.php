@@ -32,8 +32,8 @@ public function generarEncabezado(){
 	                   
                      </ul>
                    </li>
-	               <li><a href="#">Nosotros</a></li>
-	               <li><a href="#">Contacto</a></li>
+	               <li><a href="seccionNosotros.php">Nosotros</a></li>
+	               <li><a href="seccionContactos.php">Contacto</a></li>
 	               
                         
                          <li class="login"> 
