@@ -128,10 +128,20 @@ public function generarRegistro(){
     return '
         
 <div id="categorias">
+
+
+
+
+
 			  	<div class="listaCont">
-				  	
+				  
+<div id="banner_registro"> <h1> Registrarse </h1></div>
+
+
 			  	</div>
                                 
+
+
 			  	<div id="categoria1" class="anuncio">
 				  	<div  id="activado" class="anuncios">
 				  		<img onclick="javascript:mostrar_ventana(\'159854\',\'Cacharel\',\'$500\',\'img/Damas/1.png\');" width="200px" height="150px" src="img/Damas/1.png">
@@ -152,7 +162,9 @@ public function generarRegistro(){
 
 <div id="form">
         
-<form id="formulario"> 
+
+
+<form id="formulario" method="get" action="ControladorUsuario.php" > 
                       
                       <table class="regist">
                           
@@ -168,12 +180,10 @@ public function generarRegistro(){
                           <tr>
                               
                                 <td>
-                                  <input type="text" value="Nombre">
+                                  <input type="text" name="nombre" value="Nombre completo">
                               </td>
                               
-                               <td>
-                                  <input type="text" value="Apellidos">
-                              </td>
+                              
                               
                           </tr>
                           
@@ -187,7 +197,7 @@ public function generarRegistro(){
                               </tr>
                               <tr>
                               <td>
-                                  <input type="email" value="Correo electrónico">
+                                  <input type="text" name="usuario" value="Usuario">
                               </td>
                               
                           </tr>                          
@@ -199,7 +209,7 @@ public function generarRegistro(){
                            </tr>
                            <tr>
                               <td>
-                                  <input type="password">
+                                  <input type="password" name="contrasenia" value="12345">
                               </td>
                               
                           </tr>                          
@@ -207,53 +217,27 @@ public function generarRegistro(){
                           
                           <tr>
                               <td>
-                                  Fecha de nacimiento
+                                  Repetir contrase&ntilde;a 
                               </td>
                           </tr>
                           
                           
                           <tr>
                               <td>
-                                  <input type="date">
-                              </td>
-                          </tr>
-                          
-                          
-                           <tr>
-                              <td>
-                                 Sexo
-                              </td>
-                          </tr>
-                          
-                          
-                          <tr>
-                              <td>
-                                  <select>
-                                      
-                                      <option > Selecciona tu sexo </option>
-                                      <option > Hombre </option>
-                                      <option > Mujer </option>
-                                      
-                                  </select>
-                              </td>
-                          </tr>
-                          
-                          
-                            <tr>
-                              <td>
-                                 Tel&eacute;fono
-                              </td>
-                          </tr>
-                          
-                          
-                          <tr>
-                              <td>
-                                  <input type="text">
+                                  <input type="password" value="12345">
                               </td>
                           </tr>
                           
                           <tr>
-                              <td colspan="2"> <input id="btn_account" type="submit" value="Crear cuenta"></td>
+                          
+
+                              <td colspan="2"> 
+                                    <input type="hidden" name="registrar_usuario" value="registrar"/>
+                                    <input id="btn_account" name="registrarse" type="submit" value="Crear cuenta">
+                                  
+                                    
+                                    <input type="button" onclick="document.location=\'index.php\'"  name="btn_regresar" class="boton"  id="naranja" value="Regresar"/>
+</                              </td>
                           </tr>
                           
                       </table>

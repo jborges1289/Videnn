@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 
  <?php
-                  
+          
+ include_once '/BD/ConexionGeneral.php';
+ include_once '/BD/config.inc.php';
  include_once './gestor_de_plantilla.php';
-                  
+ include_once '/ControladorUsuario.php';                 
+ 
 ?>
 
 

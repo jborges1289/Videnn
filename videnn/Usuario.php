@@ -14,14 +14,14 @@ class Usuario {
 
     //put your code here
 
-    private $id_usuario;
+   
     private $nombre;
     private $usuario;
     private $contrasenia;
    
-    public function __construct($id_usuario, $nombre, $usuario, $contrasenia) {
+    public function __construct($nombre, $usuario, $contrasenia) {
 
-        $this->id_usuario = $id_usuario;
+        
         $this->nombre = $nombre;
         $this->usuario = $usuario;
         $this->contrasenia = $contrasenia;
@@ -31,12 +31,7 @@ class Usuario {
     
     
     /*Getters*/
-  
-public function getId_Usuario(){
-    
-    return $this->id_usuario;
-}
-    
+ 
     
     public function getNombre() {
 
@@ -60,9 +55,7 @@ public function getId_Usuario(){
 
     
     /*Setters*/
-    public function setId_Usuario($id_usuario) {
-        $this->correo = $id_usuario;
-    }
+   
 
     public function setNombre($nombre) {
         $this->nombre = $nombre;

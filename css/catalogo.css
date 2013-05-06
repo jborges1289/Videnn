@@ -37,3 +37,13 @@
     text-align: center;
     width: 200px;
 }
+
+#banner_registro{
+    
+    float: right;
+    margin-top: -50px;
+    margin-right: 200px;
+    border-radius: 10px;
+    
+    
+}

@@ -1,6 +1,6 @@
 <?php
- include_once '../BD/ConexionGeneral.php';
- include_once '../videnn/Usuario.php';
+ include_once 'BD/ConexionGeneral.php';
+ include_once 'videnn/Usuario.php';
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -29,16 +29,16 @@ class UsuarioDAO extends ConexionGeneral{
         return $usuario;    
     }
 
-    public function insertarUsuario($id_usuario, $nombre, $usuario, $contrasenia) {
+    public function insertarUsuario($nombre, $usuario, $contrasenia) {
         $registroExitoso = false;
-        $conexionDB = $this->abrirConexion();
-        $sentencia = "INSERT INTO usuarios (id_usuario, nombre_completo, usuario, contrasenia)
-            VALUES ('" . $id_usuario . "', '" . $nombre . "', '".$usuario."', '" . $contrasenia . "')";
+        $conexion = $this->abrirConexion();
+        $sentencia = "INSERT INTO usuarios (nombre_completo, usuario, contrasenia)
+            VALUES ('" . $nombre . "', '".$usuario."', '" . $contrasenia . "')";
         //echo $sentencia;
-        if ($this->ejecutarConsulta($sentencia, $conexionDB)) {
+        if ($this->ejecutarConsulta($sentencia, $conexion)) {
             $registroExitoso = true;
         }
-        $this->cerrarConexion($conexionDB);
+        $this->cerrarConexion($conexion);
         return $registroExitoso;
     }
 
