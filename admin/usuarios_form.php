@@ -1,8 +1,12 @@
 <?php
 //Ingreso y actualizacion
+
+ include_once '/BD/ConexionGeneral.php';
+ include_once '/BD/config.inc.php';
+ include_once '/ControladorUsuario.php';    
+
 if(isset($_POST[nombre]))
 {
-	include '../includes/db.php';
 	include 'includes/funciones.php';
 		
 	header("Location: ./?modulo=usuarios_form&id={$id}&registroExitoso");
@@ -39,22 +43,17 @@ else
 			<div class="controls"><input type="text" name="nombre" id="nombre" value="<?=$d[nombre]?>" class="input-xlarge required" /></div>
 		</div>
 		<div class="control-group span12">
-			<label for="genero" class="control-label">Apellido</label>
-			<div class="controls"><input type="text" name="genero" id="genero" value="<?=$d[genero]?>" class="input-xlarge required" /></div>
+			<label for="genero" class="control-label">Usuario</label>
+			<div class="controls"><input type="text" name="usuario" id="usuario" value="<?=$d[usuario]?>" class="input-xlarge required" /></div>
 		</div>
-		<div class="control-group">
-			<label for="imagen" class="control-label">Foto</label>
-			<div class="controls">
-				<?php if(strlen($d[imagen]) > 0){ ?>
-				<img src="data:image/png;base64,<?=base64_encode($d[imagen])?>" />
-				<br />
-				<?php } ?>
-				<input type="file" name="imagen" id="imagen" class="input-xlarge" accept="image/png" />
-			</div>
-		</div>
+		<div class="control-group span12">
+			<label for="genero" class="control-label">Contraseña</label>
+			<div class="controls"><input type="password" name="contrasenia" id="contrasenia" value="<?=$d[contrasenia]?>" class="input-xlarge required" /></div>
+		</div>		
 		<div class="form-actions btn-group span7">
 			<a class="btn btn-danger" href="?modulo=usuarios"><i class="icon-remove icon-white"></i> Cancelar</a>
-			<button class="btn btn-primary" type="submit"><i class="icon-ok icon-white"></i> Registrar</button>
+			<input id="btn_account" name="registrarse" type="submit" value="Registrar">
+<!--			<button class="btn btn-primary" type="submit" name="registrarse"><i class="icon-ok icon-white"></i> Registrar</button>-->
 		</div>
 	</fieldset>
   <input type="hidden" name="identificador" value="<?=$_GET[id]?>" />

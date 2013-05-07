@@ -1,15 +1,16 @@
 <?php
+
+include_once '/BD/ConexionGeneral.php';
 //Ingreso y actualizacion
-if(isset($_POST[titulo]))
+if(isset($_POST[nombre]))
 {
-	include '../includes/db.php';
 	include 'includes/funciones.php';
 		
 	header("Location: ./?modulo=productos_form&id={$id}&registroExitoso");
 }
 
 	//Marquesinas
-	$titulo = 'Creación de una nuevo producto';
+	$nombre = 'Creación de una nuevo producto';
 	$intro = 'Llene el siguiente formulario para crear el registro de una nuevo producto.';
 
 
@@ -23,7 +24,7 @@ else
 	$wh = 'hidden';
 }
 ?>
-<h2><?=$titulo?></h2>
+<h2><?=$nombre?></h2>
 <div class="alert alert-block alert-warning <?=$wh?>">
   <a class="close" data-dismiss="alert">×</a>
   El registro ha sido guardado exitosamente.
@@ -36,19 +37,15 @@ else
 <form id="form1" method="post" action="productos_form.php" class="marginTop20 form-horizontal blackLabel" enctype="multipart/form-data">
 	<fieldset>
 		<div class="control-group span12">
-			<label for="titulo" class="control-label">Título</label>
-			<div class="controls"><input type="text" name="titulo" id="titulo" value="<?=$d[titulo]?>" class="input-xlarge required" /></div>
+			<label for="nombre" class="control-label">Nombre:</label>
+			<div class="controls"><input type="text" name="nombre" id="nombre" value="<?=$d[nombre]?>" class="input-xlarge required" /></div>
 		</div>
 		<div class="control-group">
-			<label for="fecha" class="control-label">Fecha</label>
-			<div class="controls"><input type="text" name="fecha" id="fecha" value="<?=$d[fecha]?>" class="input-xlarge required fecha" /></div>
-		</div>
-		<div class="control-group">
-			<label for="descripcion" class="control-label">Descripción</label>
+			<label for="descripcion" class="control-label">Descripción:</label>
       <div class="controls"><textarea name="descripcion" id="descripcion" rows="3" class="input-xlarge required"><?=$d[descripcion]?></textarea></div>
     </div>
 		<div class="control-group span12">
-			<label for="precio" class="control-label">Precio</label>
+			<label for="precio" class="control-label">Precio:</label>
 			<div class="controls"><input type="text" name="precio" id="precio" value="<?=$d[precio]?>" class="input-xlarge required" /></div>
 		</div>
 		<div class="control-group">
@@ -62,7 +59,7 @@ else
 		</div>
 		<div class="form-actions btn-group span7">
 			<a class="btn btn-danger" href="?modulo=productos"><i class="icon-remove icon-white"></i> Cancelar</a>
-			<button class="btn btn-primary" type="submit"><i class="icon-ok icon-white"></i> Registrar</button>
+			<button class="btn btn-primary" type="submit" ><i class="icon-ok icon-white"></i> Registrar</button>
 		</div>
 	</fieldset>
   <input type="hidden" name="identificador" value="<?=$_GET[id]?>" />
