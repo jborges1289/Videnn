@@ -42,7 +42,7 @@ public function generarEncabezado(){
                          <ul id="list_login">
                          <div id="box_login">
                         
-                          <form  method="post" id="formulario_login" action="<?php echo $_SERVER[\'PHP_SELF\'] ?>" >
+                          <form action="login.php" method="post" id="formulario_login" >
                         <table id="table_login">
                 
                             <tr>
@@ -51,8 +51,13 @@ public function generarEncabezado(){
                            </tr>                       
                             
                             <tr>
+<<<<<<< HEAD
                              <td><input type="text" id="usr" name="usr"/></td>
                              <td><input type="password" id="pass" name="pass" /></td>
+=======
+                             <td><input type="text" id="user" name="user"/></td>
+                             </td><td><input type="password" id="pass" name="pass" /></td>
+>>>>>>> b0c2ca36b0eeaa0a138e45ee4cee0a175103120b
                              <td><input type="submit" class="boton"  id="acceder" value="Entrar" name="btn_sesion"/></td>
                              </tr>
 

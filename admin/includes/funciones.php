@@ -1,58 +1,9 @@
 <?php
-DEFINE(EMAIL1, 'director.general@bscompany.com.mx'); //Reply
-DEFINE(EMAIL2, 'director.general@bscompany.com.mx'); //Envía
-DEFINE(TITULO, 'BS Diving');
-$root = "localhost/bsdiving";
-
 function p($a)
 {
 	echo "<pre>";
 	print_r($a);
 	echo "</pre>";
-}
-
-function pq($s)
-{
-	echo nl2br($s);
-}
-
-function zero($v)
-{
-	return sprintf("%04d",$v);
-}
-
-function MesesShort($m)
-{
-	$meses = array("", "Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic");
-	return $meses[$m];
-}
-
-function Mes($m)
-{
-	$meses = array("", "Enero","Febrero","Marzo","Abril","Mayo","Junino","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
-	return $meses[$m];
-}
-
-function fecha($f)
-{
-	list($fecha, $hora) = split(" ", $f);
-	list($anio, $mes, $dia) = split("-", $fecha);
-	$ff = sprintf("%02d",$dia)."-".MesesShort((int)$mes)."-".$anio;
-	return $ff;
-}
-
-function fecha1($f)
-{
-	list($fecha, $hora) = split(" ", $f);
-	list($anio, $mes, $dia) = split("-", $fecha);
-	$ff = sprintf("%02d",$dia)." de ".Mes((int)$mes)." del ".$anio;
-	return $ff;
-}
-
-function fecha2($f)
-{
-	list($fecha, $hora) = split(" ", $f);
-	return fecha($f).' '.$hora;
 }
 
 function isAdmin()
