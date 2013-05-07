@@ -52,8 +52,8 @@ public function generarEncabezado(){
                             
                             <tr>
                              <td><input type="text" id="usr" name="usr"/></td>
-                             </td><td><input type="password" id="pass" name="pass" /></td>
-                             <td><input type="submit" class="boton"  id="acceder" value="Entrar" name="btn_sesion" onClick="validar(this.form);"/></td>
+                             <td><input type="password" id="pass" name="pass" /></td>
+                             <td><input type="submit" class="boton"  id="acceder" value="Entrar" name="btn_sesion"/></td>
                              </tr>
 
                         </table>

@@ -15,9 +15,9 @@ class UsuarioDAO extends ConexionGeneral{
     //put your code here
 
     
-    public function seleccionarUsuarioPorId($id_usuario) {
+    public function seleccionarUsuarioPorNombreUsuario($usuario) {
         $conexion=$this->abrirConexion();        
-        $sentencia = "SELECT * FROM usuarios WHERE id_usuario ='" . mysql_real_escape_string($id_usuario) . "'";
+        $sentencia = "SELECT * FROM usuarios WHERE usuario ='" . mysql_real_escape_string($usuario) . "'";
         $resultado = $this->ejecutarConsulta($sentencia, $conexion);
         
         $usuario=null;
