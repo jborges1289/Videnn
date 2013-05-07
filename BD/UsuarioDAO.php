@@ -66,11 +66,11 @@ class UsuarioDAO extends ConexionGeneral{
         return $usuarios;
     }
 
-    public function eliminarUsuario($id_usuario) {
+    public function eliminarUsuario($usuario) {
         $conexion = $this->abrirConexion();
         $usuarioEliminado = false;
         $sentencia = "DELETE FROM usuarios 
-            WHERE id_usuario = '" . mysql_real_escape_string($id_usuario) . "'";
+            WHERE id_usuario = '" . mysql_real_escape_string($usuario) . "'";
 //        echo $sentencia;
         $resultado = $this->ejecutarConsulta($sentencia, $conexion);
         if (!$resultado) {

@@ -18,10 +18,11 @@ class Usuario {
     private $nombre;
     private $usuario;
     private $contrasenia;
+    private $id_usuario;
    
-    public function __construct($nombre, $usuario, $contrasenia) {
+    public function __construct($id_usuario, $nombre, $usuario, $contrasenia) {
 
-        
+        $this->id_usuario = $id_usuario;
         $this->nombre = $nombre;
         $this->usuario = $usuario;
         $this->contrasenia = $contrasenia;
@@ -31,6 +32,11 @@ class Usuario {
     
     
     /*Getters*/
+    
+    public function getId_Usuario(){
+        
+        return $this->id_usuario;
+    }
  
     
     public function getNombre() {
@@ -55,7 +61,11 @@ class Usuario {
 
     
     /*Setters*/
-   
+    public function setId_Usuario($id_usuario){
+        $this->id_usuario = $id_usuario;
+    }
+
+
 
     public function setNombre($nombre) {
         $this->nombre = $nombre;

@@ -26,11 +26,11 @@ class ServicioUsuario {
         }
     }
 
-    public function eliminarUsuario($id_usuario) {
+    public function eliminarUsuario($usuario) {
         $usuarioDAO = new UsuarioDAO();
         
         
-        if ($usuarioDAO->eliminarUsuario($id_usuario)) {
+        if ($usuarioDAO->eliminarUsuario($usuario)) {
             return true;
         } else {
             return false;
@@ -47,9 +47,9 @@ class ServicioUsuario {
         }
     }
 
-    public function buscarUsuarioPorId($id_usuario) {
+    public function buscarUsuarioPorNombreUsuario($usuario) {
         $usuarioDAO = new UsuarioDAO();
-        return $usuarioDAO->seleccionarUsuarioPorId($id_usuario);
+        return $usuarioDAO->seleccionarUsuarioPorId($usuario);
     }
 
     public function obtenerTodosUsuarios() {

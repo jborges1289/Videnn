@@ -15,9 +15,9 @@ class ProductoDAO extends ConexionGeneral{
     //put your code here
 
     
-    public function seleccionarProductoPorId($id_producto) {
+    public function seleccionarProductoPorNombre($nombre) {
         $conexion=$this->abrirConexion();      
-         $sentencia = "SELECT * FROM productos WHERE id_producto ='" . mysql_real_escape_string($id_producto) . "'";
+         $sentencia = "SELECT * FROM productos WHERE id_producto ='" . mysql_real_escape_string($nombre) . "'";
         $resultado = $this->ejecutarConsulta($sentencia, $conexion);
         $usuario=null;
         while ($fila = mysql_fetch_array($resultado)) {
