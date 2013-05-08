@@ -17,13 +17,17 @@ class ProductoDAO extends ConexionGeneral{
     
     public function seleccionarProductoPorNombre($nombre) {
         $conexion=$this->abrirConexion();      
-         $sentencia = "SELECT * FROM productos WHERE id_producto ='" . mysql_real_escape_string($nombre) . "'";
+         $sentencia = "SELECT * FROM productos WHERE nombre_producto ='" . mysql_real_escape_string($nombre) . "' ";
         $resultado = $this->ejecutarConsulta($sentencia, $conexion);
-        $usuario=null;
+      
+       $producto = NULL;
+
         while ($fila = mysql_fetch_array($resultado)) {
-            $producto = new Producto($fila["id_producto"],$fila["nombre_producto"], $fila["descripcion"], $fila["precio_unitario"], $fila["url_imagen"]);
-            return $usuario;
-        }
+            $producto = new Producto($fila["id_producto"],$fila["nombre_producto"], $fila["descripcion"], $fila["precio_unitario"], $fila["url_imagen"], $fila["id_tipo_"]);
+          echo $producto;
+       }
+            return $producto;
+        
         $this->cerrarConexion($conexion);        
         return $producto;    
     }
@@ -41,10 +45,10 @@ class ProductoDAO extends ConexionGeneral{
         return $registroExitoso;
     }
 
-    public function actualizarProducto($nombre, $descripcion, $precio, $url) {
+    public function actualizarProducto($id_producto, $nombre, $descripcion, $precio, $url) {
         $conexion = $this->abrirConexion();        
         $sentencia = "UPDATE productos SET  nombre_producto ='" . $nombre . "', descripcion ='" .$descripcion. "',
-            precio_unitario = '" . $precio. "', url_imagen ='". $url ."' ";
+            precio_unitario = '" . $precio. "', url_imagen ='". $url ."' WHERE id_producto = " . $id_producto . "  ";
         
         $resultado = $this->ejecutarConsulta($sentencia, $conexion);
         $this->cerrarConexion($conexion);
@@ -53,13 +57,16 @@ class ProductoDAO extends ConexionGeneral{
 
     public function seleccionarTodosProductos($condicion) {
         $conexion = $this->abrirConexion();        
-        $sentencia = "SELECT * FROM productos $condicion ORDER BY nombre ASC";
+        $sentencia = "SELECT * FROM productos $condicion ";
         $resultado_peticion = $this->ejecutarConsulta($sentencia, $conexion);
 
+        echo $sentencia;
+        
         $indice = 0;
         $productos = array();
-        while ($fila = mysql_fetch_array($resultado_peticion)) {          
-            $productos[$indice] = new Producto($fila["id_producto"],$fila["nombre_producto"], $fila["descripcion"], $fila["precio_unitario"], $fila["url_imagen"]);
+        while ($fila = mysql_fetch_array($resultado_peticion)) { 
+            echo $fila;
+            $productos[$indice] = new Producto($fila["id_producto"],$fila["nombre_producto"], $fila["descripcion"], $fila["precio_unitario"], $fila["url_imagen"], $fila["id_tipo_p"]);
             $indice++;
         }
         $this->cerrarConexion($conexion);

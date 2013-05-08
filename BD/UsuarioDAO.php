@@ -42,9 +42,10 @@ class UsuarioDAO extends ConexionGeneral{
         return $registroExitoso;
     }
 
-    public function actualizarUsuario($nombre, $usuario, $contrasenia) {
+    public function actualizarUsuario($id_usuario, $nombre, $usuario, $contrasenia) {
         $conexion = $this->abrirConexion();        
-        $sentencia = "UPDATE usuarios SET  nombre_completo ='" . $nombre . "', usuario ='" .$usuario. "', contrasenia = '" . $contrasenia . "'";
+        $sentencia = "UPDATE usuarios SET  nombre_completo ='" . $nombre . "', usuario ='" .$usuario. "', contrasenia = '" . $contrasenia . "' 
+            WHERE id_usuario = " . $id_usuario . "  ";
         
         $resultado = $this->ejecutarConsulta($sentencia, $conexion);
         $this->cerrarConexion($conexion);
@@ -54,23 +55,23 @@ class UsuarioDAO extends ConexionGeneral{
     public function seleccionarTodosUsuarios($condicion) {
         $conexion = $this->abrirConexion();        
         $sentencia = "SELECT * FROM usuarios $condicion ORDER BY nombre ASC";
-        $resultado_peticion = $this->ejecutarConsulta($sentencia, $conexion);
-//        echo $sentencia;
+        $resultado = $this->ejecutarConsulta($sentencia, $conexion);
+
         $indice = 0;
         $usuarios = array();
-        while ($fila = mysql_fetch_array($resultado_peticion)) {          
-            $usuarios[$indice] = new Usuario($fila['usuarioId'],$fila["contrasenia"], $fila["nombre"], $fila["apellidoP"], $fila["apellidoM"], $fila["matricula"], $fila["tipoUsuario"]);            
+        while ($fila = mysql_fetch_array($resultado)) {          
+            $usuarios[$indice] = new Usuario($fila['id_usuario'],$fila["nombre_completo"], $fila["usuario"], $fila["contrasenia"]);            
             $indice++;
         }
         $this->cerrarConexion($conexion);
         return $usuarios;
     }
 
-    public function eliminarUsuario($usuario) {
+    public function eliminarUsuario($id_usuario) {
         $conexion = $this->abrirConexion();
         $usuarioEliminado = false;
         $sentencia = "DELETE FROM usuarios 
-            WHERE id_usuario = '" . mysql_real_escape_string($usuario) . "'";
+            WHERE id_usuario = '" . mysql_real_escape_string($id_usuario) . "'";
 //        echo $sentencia;
         $resultado = $this->ejecutarConsulta($sentencia, $conexion);
         if (!$resultado) {
@@ -86,10 +87,10 @@ class UsuarioDAO extends ConexionGeneral{
         return $usuarioEliminado;
     }
 
-    public function existeUsuario($usuario) {
+    public function existeUsuario($nombre) {
         $conexion = $this->abrirConexion();
         $existeUsuario = true;
-        $sentencia = "SELECT * FROM usuarios WHERE usuario = '" . mysql_real_escape_string($usuario) . "'";
+        $sentencia = "SELECT * FROM usuarios WHERE nombre_completo = '" . mysql_real_escape_string($nombre) . "'";
         $resultado = $this->ejecutarConsulta($sentencia, $conexion);
         if (!$resultado) {
             $cerror = "No fue posible recuperar la información de la base de datos.<br>";

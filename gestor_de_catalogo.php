@@ -1,4 +1,5 @@
 <?php
+include_once 'ControladorProducto.php';
 
 /* 
     Document   : catalogoBotones
@@ -12,24 +13,10 @@
 class gestor_de_catalogo{
     public function generar_infoProducto(){
         
-    return '<div id = "info"> 
-        <h3>
-            <a href="#">
-            <strong>Boton variado</strong> 
-            </a>    
-        </h3>
-        <p class="vista-subtitulo-articulo"> La imagen que quieras en cuantos botones desees</p>
+        $controladorProducto = new ControladorProducto();
+       
         
-        <span class="precio-unitario">
-           Precio unitario:
-            <strong class="precio">
-                 $&nbsp;8
-                <sup>00</sup>
-            </strong>
-            
-        </span>
-       </div>
-         ';
+        return  $controladorProducto->obtenerProductosBotonesC();
         
         }
    

@@ -49,9 +49,9 @@ class ControladorUsuario {
 
     function eliminarUsuarioC() {
         if (isset($_POST["eliminar_profesor"]) && $_POST["eliminar_profesor"] == "eliminar") {
-            $usuario = $_POST["usuario"];
+            $id_usuario = $_POST["id_usuario"];
             $servicioUsuario = new ServicioUsuario();
-            return $servicioUsuario->eliminarUsuario($usuario);
+            return $servicioUsuario->eliminarUsuario($id_usuario);
         }
     }
 

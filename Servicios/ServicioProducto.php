@@ -15,9 +15,9 @@ class ServicioProducto {
     
     
     
-    public function actualizarProducto($nombre, $descripcion, $precio, $url) {
+    public function actualizarProducto($id_producto, $nombre, $descripcion, $precio, $url) {
         $productoDAO = new ProductoDAO();
-        $exito = $productoDAO->actualizarProducto($nombre, $descripcion, $precio, $url);
+        $exito = $productoDAO->actualizarProducto($id_producto, $nombre, $descripcion, $precio, $url);
         
         if ($exito) {
             return true;
@@ -26,11 +26,11 @@ class ServicioProducto {
         }
     }
 
-    public function eliminarProducto($nombre) {
+    public function eliminarProducto($id_producto) {
         $productoDAO = new ProductoDAO();
         
         
-        if ($productoDAO->eliminarProducto($nombre)) {
+        if ($productoDAO->eliminarProducto($id_producto)) {
             return true;
         } else {
             return false;
@@ -55,6 +55,44 @@ class ServicioProducto {
     public function obtenerTodosProductos() {
         $productoDAO = new ProductoDAO();
         return $productoDAO->seleccionarTodosProductos("");
+    }
+    
+    
+    public function obtenerTodosProductosBotones() {
+        $productoDAO = new ProductoDAO();
+        $tipo = "2";
+        $condicion = "WHERE id_tipo_p = '" . $tipo. "'";
+//          
+        return $productoDAO->seleccionarTodosProductos($condicion);
+    }
+    
+    public function obtenerTodosProductosEspectaculares() {
+        $productoDAO = new ProductoDAO();
+        $tipo = "3";
+        $condicion = "WHERE id_producto = " . $tipo. "";
+        return $productoDAO->seleccionarTodosProductos($condicion);
+    }
+    
+    
+    public function obtenerTodosProductosLonas() {
+        $productoDAO = new ProductoDAO();
+        $tipo = "1";
+        $condicion = "WHERE id_producto = " . $tipo. "";
+        return $productoDAO->seleccionarTodosProductos($condicion);
+    }
+    
+    public function obtenerTodosProductosToldos() {
+      $productoDAO = new ProductoDAO();
+        $tipo = "4";
+        $condicion = "WHERE id_producto = " . $tipo. "";
+        return $productoDAO->seleccionarTodosProductos($condicion);
+    }
+    
+    public function obtenerTodosProductosOffset() {
+      $productoDAO = new ProductoDAO();
+        $tipo = "5";
+        $condicion = "WHERE id_producto = " . $tipo. "";
+        return $productoDAO->seleccionarTodosProductos($condicion);
     }
     
     

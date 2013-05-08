@@ -18,14 +18,16 @@ class Producto {
     private $desc_producto;
     private $precio_unitario;
     private $url;
+    private $tipo;
             
-    public function __construct($id_producto, $nombre_producto,$desc_producto, $precio_unitario, $url) {
+    public function __construct($id_producto, $nombre_producto,$desc_producto, $precio_unitario, $url, $tipo) {
 
         $this->id_producto = $id_producto;
         $this->nombre_producto = $nombre_producto;
         $this->desc_producto =$desc_producto;
         $this->precio_unitario = $precio_unitario;
         $this->url = $url;
+        $this->tipo = $tipo;
         
 }
     
@@ -56,6 +58,13 @@ class Producto {
  }
 
  
+ public function getTipo(){
+     
+     return $this->tipo;
+ }
+ 
+ 
+ 
  
 public function setId_producto($id_producto){
     
@@ -84,8 +93,10 @@ public function setNombre_Producto($nombre_producto){
  public function setUrl($url){
      
      $this->url = $url;
-     
-     
+ }
+ 
+ public function setTipo($tipo){
+     $this->tipo = $tipo;
  }
  
 }

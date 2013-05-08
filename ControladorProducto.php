@@ -31,24 +31,36 @@ class ControladorProducto {
         }
     }
 
-    function obtenerProductoC($nombre) {
-        
+    function obtenerProductoC() {
+        if (isset($_POST["obtener_producto"]) && $_POST["obtener_producto"] == "obtener") {
+            $nombre = $_POST["nombre"];
             $servicioProducto = new ServicioProducto();
             return $servicioProducto->buscarProductoPorNombre($nombre);
-            
+        }
         }
     
+     
+        function obtenerProductosBotonesC(){
+            $servicioProducto = new ServicioProducto();
+            return $servicioProducto->obtenerTodosProductosBotones();
+        }
+  
 
+    
+    
     function obtenerProductosC() {
-        if (isset($_POST["obtener_productos"]) && $_POST["obtener_producto"] == "obtener") {
+        if (isset($_POST["obtener_productos"]) && $_POST["obtener_productos"] == "obtener") {
             $servicioProducto = new ServicioProducto();
             return $servicioProducto->obtenerTodosProductos();
         }
     }
 
-    function eliminarProductoC($nombre) {
+    
+    
+    
+    function eliminarProductoC() {
         if (isset($_POST["eliminar_producto"]) && $_POST["eliminar_producto"] == "eliminar") {
-          
+            $nombre = $_POST["id_producto"];
             $servicioProducto = new ServicioProducto();
             return $servicioProducto->eliminarProducto($nombre);
         }
@@ -83,33 +95,47 @@ class ControladorProducto {
 //        }
 //    }
 
-//    function tablaProductos() {
-//        $profesores = $this->obtenerProductoesC();
-//        $SALTO = "\n";
-//        $cadena_post = "";
-//        $index = 1;
-//        foreach ($profesores as $profesor) {
-//            $class = "";
-//            if ($index % 2 == 0)
-//                $class = "par";
-//            $cadena_post .='            <tr class="' . $class . '">' . $SALTO;
-//            $cadena_post .='                <td>' . $profesor->getIdProducto() . '</td>' . $SALTO;
-//            $cadena_post .='                <td>' . $profesor->getNombre() . '</td>' . $SALTO;
-//            $cadena_post .='                <td>' . $profesor->getApellidoP() . '</td>' . $SALTO;
-//            $cadena_post .='                <td>' . $profesor->getApellidoM() . '</td>' . $SALTO;
-//            $cadena_post .='                <td>' . $profesor->getIdProducto() . '</td>' . $SALTO;
-//            $cadena_post .='                <td>' . $profesor->getContrasena() . '</td>' . $SALTO;
-//
-//            $cadena_post .='               	<td class="borrar"><a onclick = "confirmarEliminacionProducto(' . $profesor->getIdProducto() . ')" href="#"><img src="img/utileria/borrar.png" alt="Borrar"/></a></td>' . $SALTO;
-//
-//            $cadena_post .='            </tr>' . $SALTO;
-//            $index++;
-//        }
-//        if ($cadena_post == "") {
-//            $cadena_post .="<tr><td colspan='4'>No hay profesores registrados</td></tr>" . $SALTO;
-//        }
-//        return $cadena_post;
-//    }
+    function catalogoProductosBotones() {
+        $productos = $this->obtenerProductosBotonesC();
+        $SALTO = "\n";
+        $cadena_post = "";
+        $index = 1;
+        foreach ($productos as $producto) {
+         
+           
+            if ($index % 2 == 0)
+                $class = "producto";
+                $id = "activado";
+            $cadena_post .='            <div id="' . $id . '" class="' . $class . '"  >' . $SALTO;
+            $cadena_post .='                <img width="350px" height="150px"  src=" ' . $producto->getUrl() .'" >' . $SALTO;
+            $cadena_post .='             </div> ' . SALTO;
+            
+            
+            $id2 = "info";
+            
+            $cadena_post .= ' <div id = "'.$id2.'"> ' .  SALTO;
+            $cadena_post .= '                    <h3> '. SALTO;
+            $cadena_post .= '             <a href="#">'. SALTO;
+            $cadena_post .= '            <strong>Boton variado</strong> '. SALTO;
+            $cadena_post .= '             </a>    '. SALTO;
+            $cadena_post .= '           </h3> '. SALTO;
+            $cadena_post .= '        <p class="vista-subtitulo-articulo"> La imagen que quieras en cuantos botones desees</p>'. SALTO;                       
+            $cadena_post .= '          <span class="precio-unitario"> '. SALTO;
+            $cadena_post .= '              Precio unitario: '. SALTO;
+            $cadena_post .= '             <strong class="precio"> '. SALTO;
+            $cadena_post .= '              $&nbsp; .'. $producto->getPrecio_unitario() .' . '. SALTO;
+            $cadena_post .= '           <sup>00</sup> ' .SALTO;
+            $cadena_post .= '            </strong> ' .SALTO;
+            $cadena_post .= '          </span> '. SALTO;
+            $cadena_post .= ' </div>  '. SALTO;
+          
+            $index++;
+        }
+        if ($cadena_post == "") {
+            $cadena_post .= ' <div id="' . $id . '" class="' . $class . '" > No hay botones registrados </div>' . $SALTO;
+        }
+        return $cadena_post;
+    }
     
     
 

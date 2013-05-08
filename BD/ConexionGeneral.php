@@ -29,7 +29,7 @@ class ConexionGeneral {
 
     public function ejecutarConsulta($sentencia, $conexion) {
 
-        return mysql_query($sentencia, $conexion);
+        return mysql_query($sentencia, $conexion) or die(mysql_error()) ;
     }
 
     public function cerrarConexion($conexion) {

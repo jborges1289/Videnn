@@ -15,9 +15,9 @@ include_once 'BD/UsuarioDAO.php';
 class ServicioUsuario {
     //put your code here
 
-    public function actualizarUsuario($nombre, $usuario, $contrasenia) {
+    public function actualizarUsuario($id_usuario, $nombre, $usuario, $contrasenia) {
         $usuarioDAO = new UsuarioDAO();
-        $exito = $usuarioDAO->actualizarUsuario($nombre, $usuario, $contrasenia);
+        $exito = $usuarioDAO->actualizarUsuario($id_usuario, $nombre, $usuario, $contrasenia);
         
         if ($exito) {
             return true;
@@ -26,11 +26,11 @@ class ServicioUsuario {
         }
     }
 
-    public function eliminarUsuario($usuario) {
+    public function eliminarUsuario($id_usuario) {
         $usuarioDAO = new UsuarioDAO();
         
         
-        if ($usuarioDAO->eliminarUsuario($usuario)) {
+        if ($usuarioDAO->eliminarUsuario($id_usuario)) {
             return true;
         } else {
             return false;
@@ -49,7 +49,7 @@ class ServicioUsuario {
 
     public function buscarUsuarioPorNombreUsuario($usuario) {
         $usuarioDAO = new UsuarioDAO();
-        return $usuarioDAO->seleccionarUsuarioPorId($usuario);
+        return $usuarioDAO->seleccionarUsuarioPorNombreUsuario($usuario);
     }
 
     public function obtenerTodosUsuarios() {
