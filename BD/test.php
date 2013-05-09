@@ -4,6 +4,8 @@ include_once 'ProductoDAO.php';
 
 
 
+
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -26,8 +28,9 @@ include_once 'ProductoDAO.php';
 //$url = "////";
 //$tipo = "2";
 
-$usuario = new ProductoDAO();
-
-//$usuario->insertarUsuario($correo, $nombre, $apellido, $contrasenia, $fecha_n, $sexo, $telefono, $tipo)
-//$usuario->actualizarUsuario($correo, $nombre, $apellido, $contrasenia, $fecha_n, $sexo, $telefono, $tipo)
-$usuario->seleccionarProductoPorNombre("algo");
+$producto = new ProductoDAO();
+//$producto->insertarUsuario($correo, $nombre, $apellido, $contrasenia, $fecha_n, $sexo, $telefono, $tipo)
+//$producto->actualizarUsuario($correo, $nombre, $apellido, $contrasenia, $fecha_n, $sexo, $telefono, $tipo)
+//$producto->seleccionarProductoPorNombre("Botones");
+$id = "2";
+$producto->seleccionarTodosProductos("WHERE id_tipo_p = '".$id."' ");

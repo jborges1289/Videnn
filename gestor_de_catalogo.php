@@ -11,102 +11,41 @@ include_once 'ControladorProducto.php';
 
 
 class gestor_de_catalogo{
-    public function generar_infoProducto(){
+    
+    public function generarCatalogoBotones(){
         
         $controladorProducto = new ControladorProducto();
-       
-        
-        return  $controladorProducto->obtenerProductosBotonesC();
-        
+          
+        return  $controladorProducto->catalogoProductosBotones();
         }
    
     
-    public function generar_infoEspectaculares(){
+    public function generarCatalogoEspectaculares(){
         
-        return '<div id = "info"> 
-        <h3>
-            <a href="#">
-            <strong>Publicidad Móvil</strong> 
-            </a>    
-        </h3>
-        <p class="vista-subtitulo-articulo"> Una opción con muchos resultados</p>
+             $controladorProducto = new ControladorProducto();
         
-        <span class="precio-unitario">
-           Precio unitario:
-            <strong class="precio">
-                 $&nbsp;200
-                <sup>00</sup>
-            </strong>
-            
-        </span>
-       </div>
-         ';
+        return $controladorProducto->catalogoProductosEspectaculares();
     }
     
-    public function generar_infoLonas(){
-        
-        return '<div id = "info"> 
-        <h3>
-            <a href="#">
-            <strong>Lonas para tus Celebraciones</strong> 
-            </a>    
-        </h3>
-        <p class="vista-subtitulo-articulo"> Una opción para inmortalizar esos momentos</p>
-        
-        <span class="precio-unitario">
-           Precio unitario:
-            <strong class="precio">
-                 $&nbsp;200
-                <sup>00</sup>
-            </strong>
+    public function generarCatalogoLonas(){
             
-        </span>
-       </div>
-         ';
+        $controladorProducto = new ControladorProducto();
+       
+         return $controladorProducto->catalogoProductosLonas();
     }
     
-        public function generar_infoEstructura(){
+        public function generar_CatalogoToldos(){
         
-        return '<div id = "info"> 
-        <h3>
-            <a href="#">
-            <strong>Estructas para lonas</strong> 
-            </a>    
-        </h3>
-        <p class="vista-subtitulo-articulo"> Arma el modelo de estructura que desees para tu toldo</p>
-        
-        <span class="precio-unitario">
-           Precio unitario:
-            <strong class="precio">
-                 $&nbsp;200
-                <sup>00</sup>
-            </strong>
+           $controladorProducto = new ControladorProducto();
             
-        </span>
-       </div>
-         ';
+        return $controladorProducto->catalogoProductosToldos();
     }
     
-     public function generar_infoOffset(){
+     public function generarCatalogoOffset(){
         
-        return '<div id = "info"> 
-        <h3>
-            <a href="#">
-            <strong>Volantes</strong> 
-            </a>    
-        </h3>
-        <p class="vista-subtitulo-articulo">Date a conocer, realiza tus volantes con nosotros</p>
-        
-        <span class="precio-unitario">
-           Precio unitario:
-            <strong class="precio">
-                 $&nbsp;200
-                <sup>00</sup>
-            </strong>
+        $controladorProducto = new ControladorProducto();
             
-        </span>
-       </div>
-         ';
+        return $controladorProducto->catalogoProductosOffset();
     }
 }
 

@@ -57,11 +57,9 @@
 				  	
                                     <?php
                                    
-//                                    $catalogoBotones = new gestor_de_catalogo();
-//                                    $catalogoBotones->generar_infoProducto();
-                                    
-                                    $botones = new ProductoDAO();
-                                    $botones->seleccionarProductoPorNombre("Boton 1");
+                                    $catalogoBotones = new gestor_de_catalogo();
+                                  echo  $catalogoBotones->generarCatalogoBotones();
+                               
                                     
                                     ?>
 				  	

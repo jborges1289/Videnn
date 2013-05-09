@@ -49,7 +49,7 @@
         <?php
        $encabezadoNosotros = new gestor_de_plantillaNosotros();
        echo $encabezadoNosotros->generarLogo();
-        _?>
+        ?>
     </div>
 </body>
 </html>
