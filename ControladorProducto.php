@@ -39,16 +39,52 @@ class ControladorProducto {
         }
         }
     
+      
+      
+        
+        
      
         function obtenerProductosBotonesC(){
             $servicioProducto = new ServicioProducto();
+            
             return $servicioProducto->obtenerTodosProductosBotones();
         }
   
-
+       
+         function obtenerProductosEspectacularesC(){
+            $servicioProducto = new ServicioProducto();
+            
+            return $servicioProducto->obtenerTodosProductosEspectaculares();
+        }
+        
+        
+        
+        
+          function obtenerProductosLonasC(){
+            $servicioProducto = new ServicioProducto();
+            
+            return $servicioProducto->obtenerTodosProductosLonas();
+        }
+        
     
-    
-    function obtenerProductosC() {
+        
+        
+ function obtenerProductosToldosC(){
+            $servicioProducto = new ServicioProducto();
+            
+            return $servicioProducto->obtenerTodosProductosToldos();
+        }
+        
+        
+  function obtenerProductosOffsetC(){
+            $servicioProducto = new ServicioProducto();
+            
+            return $servicioProducto->obtenerTodosProductosOffset();
+        }
+               
+        
+        
+        function obtenerProductosC() {
         if (isset($_POST["obtener_productos"]) && $_POST["obtener_productos"] == "obtener") {
             $servicioProducto = new ServicioProducto();
             return $servicioProducto->obtenerTodosProductos();
@@ -100,47 +136,231 @@ class ControladorProducto {
         $SALTO = "\n";
         $cadena_post = "";
         $index = 1;
+        $class ="producto";
         foreach ($productos as $producto) {
          
            
             if ($index % 2 == 0)
                 $class = "producto";
                 $id = "activado";
+                $_id = "imagen";
             $cadena_post .='            <div id="' . $id . '" class="' . $class . '"  >' . $SALTO;
-            $cadena_post .='                <img width="350px" height="150px"  src=" ' . $producto->getUrl() .'" >' . $SALTO;
-            $cadena_post .='             </div> ' . SALTO;
+            $cadena_post .='                <img id="'.$_id.'"   src=" ' . $producto->getUrl() .'" >' . $SALTO;
+            $cadena_post .='             </div> ' . $SALTO;
             
             
             $id2 = "info";
             
-            $cadena_post .= ' <div id = "'.$id2.'"> ' .  SALTO;
-            $cadena_post .= '                    <h3> '. SALTO;
-            $cadena_post .= '             <a href="#">'. SALTO;
-            $cadena_post .= '            <strong>Boton variado</strong> '. SALTO;
-            $cadena_post .= '             </a>    '. SALTO;
-            $cadena_post .= '           </h3> '. SALTO;
-            $cadena_post .= '        <p class="vista-subtitulo-articulo"> La imagen que quieras en cuantos botones desees</p>'. SALTO;                       
-            $cadena_post .= '          <span class="precio-unitario"> '. SALTO;
-            $cadena_post .= '              Precio unitario: '. SALTO;
-            $cadena_post .= '             <strong class="precio"> '. SALTO;
-            $cadena_post .= '              $&nbsp; .'. $producto->getPrecio_unitario() .' . '. SALTO;
-            $cadena_post .= '           <sup>00</sup> ' .SALTO;
-            $cadena_post .= '            </strong> ' .SALTO;
-            $cadena_post .= '          </span> '. SALTO;
-            $cadena_post .= ' </div>  '. SALTO;
+            $cadena_post .= ' <div id = "'.$id2.'"> ' .  $SALTO;
+            $cadena_post .= '                    <h3> '. $SALTO;
+            $cadena_post .= '             <a href="#">'. $SALTO;
+            $cadena_post .= '            <strong> '. $producto->getNombre_Producto() .'</strong> '. $SALTO;
+            $cadena_post .= '             </a>    '. $SALTO;
+            $cadena_post .= '           </h3> '. $SALTO;
+            $cadena_post .= '        <p class="vista-subtitulo-articulo"> '.$producto->getDesc_producto().'</p>'. $SALTO;                       
+            $cadena_post .= '          <span class="precio-unitario"> '. $SALTO;
+            $cadena_post .= '              Precio unitario: '. $SALTO;
+            $cadena_post .= '             <strong class="precio"> '. $SALTO;
+            $cadena_post .= '              $&nbsp; '. $producto->getPrecio_unitario() .' . '. $SALTO;
+            $cadena_post .= '           <sup>00</sup> ' . $SALTO;
+            $cadena_post .= '            </strong> ' . $SALTO;
+            $cadena_post .= '          </span> '. $SALTO;
+            $cadena_post .= ' </div>  '. $SALTO;
           
             $index++;
         }
         if ($cadena_post == "") {
-            $cadena_post .= ' <div id="' . $id . '" class="' . $class . '" > No hay botones registrados </div>' . $SALTO;
+            $cadena_post .= ' <div id="' . $id . '" class="' . $class . '" > Cat&aacute;logo de botones/pines vac&iacute;o </div>' . $SALTO;
         }
         return $cadena_post;
     }
     
     
 
+function catalogoProductosLonas() {
+        $productos = $this->obtenerProductosLonasC();
+        
+        
+        
+        $SALTO = "\n";
+        $cadena_post = "";
+        $index = 1;
+        $class ="producto";
+        foreach ($productos as $producto) {
+         
+           
+            if ($index % 2 == 0)
+                $class = "producto";
+                $id = "activado";
+                $_id = "imagen";
+            $cadena_post .='            <div id="' . $id . '" class="' . $class . '"  >' . $SALTO;
+            $cadena_post .='                <img id="'.$_id.'"   src=" ' . $producto->getUrl() .'" >' . $SALTO;
+            $cadena_post .='             </div> ' . $SALTO;
+            
+            
+            $id2 = "info";
+            
+            $cadena_post .= ' <div id = "'.$id2.'"> ' .  $SALTO;
+            $cadena_post .= '                    <h3> '. $SALTO;
+            $cadena_post .= '             <a href="#">'. $SALTO;
+            $cadena_post .= '            <strong> '. $producto->getNombre_Producto() .'</strong> '. $SALTO;
+            $cadena_post .= '             </a>    '. $SALTO;
+            $cadena_post .= '           </h3> '. $SALTO;
+            $cadena_post .= '        <p class="vista-subtitulo-articulo"> '.$producto->getDesc_producto().'</p>'. $SALTO;                       
+            $cadena_post .= '          <span class="precio-unitario"> '. $SALTO;
+            $cadena_post .= '              Precio unitario: '. $SALTO;
+            $cadena_post .= '             <strong class="precio"> '. $SALTO;
+            $cadena_post .= '              $&nbsp; '. $producto->getPrecio_unitario() .' . '. $SALTO;
+            $cadena_post .= '           <sup>00</sup> ' . $SALTO;
+            $cadena_post .= '            </strong> ' . $SALTO;
+            $cadena_post .= '          </span> '. $SALTO;
+            $cadena_post .= ' </div>  '. $SALTO;
+          
+            $index++;
+        }
+        if ($cadena_post == "") {
+            $cadena_post .= ' <div id="' . $id . '" class="' . $class . '" > Cat&aacute;logo de lonas vac&iacute;o </div>' . $SALTO;
+        }
+        return $cadena_post;
+    }
 
-
+    
+    function catalogoProductosEspectaculares() {
+        $productos = $this->obtenerProductosEspectacularesC();
+        $SALTO = "\n";
+        $cadena_post = "";
+        $index = 1;
+        $class ="producto";
+        foreach ($productos as $producto) {
+         
+           
+            if ($index % 2 == 0)
+                $class = "producto";
+                $id = "activado";
+                $_id = "imagen";
+            $cadena_post .='            <div id="' . $id . '" class="' . $class . '"  >' . $SALTO;
+            $cadena_post .='                <img id="'.$_id.'"   src=" ' . $producto->getUrl() .'" >' . $SALTO;
+            $cadena_post .='             </div> ' . $SALTO;
+            
+            
+            $id2 = "info";
+            
+            $cadena_post .= ' <div id = "'.$id2.'"> ' .  $SALTO;
+            $cadena_post .= '                    <h3> '. $SALTO;
+            $cadena_post .= '             <a href="#">'. $SALTO;
+            $cadena_post .= '            <strong> '. $producto->getNombre_Producto() .'</strong> '. $SALTO;
+            $cadena_post .= '             </a>    '. $SALTO;
+            $cadena_post .= '           </h3> '. $SALTO;
+            $cadena_post .= '        <p class="vista-subtitulo-articulo"> '.$producto->getDesc_producto().'</p>'. $SALTO;                       
+            $cadena_post .= '          <span class="precio-unitario"> '. $SALTO;
+            $cadena_post .= '              Precio unitario: '. $SALTO;
+            $cadena_post .= '             <strong class="precio"> '. $SALTO;
+            $cadena_post .= '              $&nbsp; '. $producto->getPrecio_unitario() .' . '. $SALTO;
+            $cadena_post .= '           <sup>00</sup> ' . $SALTO;
+            $cadena_post .= '            </strong> ' . $SALTO;
+            $cadena_post .= '          </span> '. $SALTO;
+            $cadena_post .= ' </div>  '. $SALTO;
+          
+            $index++;
+        }
+        if ($cadena_post == "") {
+            $cadena_post .= ' <div id="' . $id . '" class="' . $class . '" > Cat&aacute;logo de espectaculares vac&iacute;o </div>' . $SALTO;
+        }
+        return $cadena_post;
+    }
+    
+    
+    
+    
+    function catalogoProductosToldos() {
+        $productos = $this->obtenerProductosToldosC();
+        $SALTO = "\n";
+        $cadena_post = "";
+        $index = 1;
+        $class ="producto";
+        foreach ($productos as $producto) {
+         
+           
+            if ($index % 2 == 0)
+                $class = "producto";
+                $id = "activado";
+                $_id = "imagen";
+            $cadena_post .='            <div id="' . $id . '" class="' . $class . '"  >' . $SALTO;
+            $cadena_post .='                <img id="'.$_id.'"   src=" ' . $producto->getUrl() .'" >' . $SALTO;
+            $cadena_post .='             </div> ' . $SALTO;
+            
+            
+            $id2 = "info";
+            
+            $cadena_post .= ' <div id = "'.$id2.'"> ' .  $SALTO;
+            $cadena_post .= '                    <h3> '. $SALTO;
+            $cadena_post .= '             <a href="#">'. $SALTO;
+            $cadena_post .= '            <strong> '. $producto->getNombre_Producto() .'</strong> '. $SALTO;
+            $cadena_post .= '             </a>    '. $SALTO;
+            $cadena_post .= '           </h3> '. $SALTO;
+            $cadena_post .= '        <p class="vista-subtitulo-articulo"> '.$producto->getDesc_producto().'</p>'. $SALTO;                       
+            $cadena_post .= '          <span class="precio-unitario"> '. $SALTO;
+            $cadena_post .= '              Precio unitario: '. $SALTO;
+            $cadena_post .= '             <strong class="precio"> '. $SALTO;
+            $cadena_post .= '              $&nbsp; '. $producto->getPrecio_unitario() .' . '. $SALTO;
+            $cadena_post .= '           <sup>00</sup> ' . $SALTO;
+            $cadena_post .= '            </strong> ' . $SALTO;
+            $cadena_post .= '          </span> '. $SALTO;
+            $cadena_post .= ' </div>  '. $SALTO;
+          
+            $index++;
+        }
+        if ($cadena_post == "") {
+            $cadena_post .= ' <div id="' . $id . '" class="' . $class . '" > Cat&aacute;logo de toldos/estructuras vac&iacute;o </div>' . $SALTO;
+        }
+        return $cadena_post;
+    }
+    
+    
+    function catalogoProductosOffset() {
+        $productos = $this->obtenerProductosOffsetC();
+        $SALTO = "\n";
+        $cadena_post = "";
+        $index = 1;
+        $class ="producto";
+        foreach ($productos as $producto) {
+         
+           
+            if ($index % 2 == 0)
+                $class = "producto";
+                $id = "activado";
+                $_id = "imagen";
+            $cadena_post .='            <div id="' . $id . '" class="' . $class . '"  >' . $SALTO;
+            $cadena_post .='                <img id="'.$_id.'"   src=" ' . $producto->getUrl() .'" >' . $SALTO;
+            $cadena_post .='             </div> ' . $SALTO;
+            
+            
+            $id2 = "info";
+            
+            $cadena_post .= ' <div id = "'.$id2.'"> ' .  $SALTO;
+            $cadena_post .= '                    <h3> '. $SALTO;
+            $cadena_post .= '             <a href="#">'. $SALTO;
+            $cadena_post .= '            <strong> '. $producto->getNombre_Producto() .'</strong> '. $SALTO;
+            $cadena_post .= '             </a>    '. $SALTO;
+            $cadena_post .= '           </h3> '. $SALTO;
+            $cadena_post .= '        <p class="vista-subtitulo-articulo"> '.$producto->getDesc_producto().'</p>'. $SALTO;                       
+            $cadena_post .= '          <span class="precio-unitario"> '. $SALTO;
+            $cadena_post .= '              Precio unitario: '. $SALTO;
+            $cadena_post .= '             <strong class="precio"> '. $SALTO;
+            $cadena_post .= '              $&nbsp; '. $producto->getPrecio_unitario() .' . '. $SALTO;
+            $cadena_post .= '           <sup>00</sup> ' . $SALTO;
+            $cadena_post .= '            </strong> ' . $SALTO;
+            $cadena_post .= '          </span> '. $SALTO;
+            $cadena_post .= ' </div>  '. $SALTO;
+          
+            $index++;
+        }
+        if ($cadena_post == "") {
+            $cadena_post .= ' <div id="' . $id . '" class="' . $class . '" > Cat&aacute;logo de offset vac&iacute;o </div>' . $SALTO;
+        }
+        return $cadena_post;
+    }
+    
 }
 $controladorProducto = new ControladorProducto();
 echo trim($controladorProducto->agregarProductoC());

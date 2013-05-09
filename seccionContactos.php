@@ -49,7 +49,7 @@
         <?php
        $encabezadoNosotros = new gestor_de_plantillaNosotros();
        echo $encabezadoNosotros->generarInfoContacto();
-        _?>
+        ?>
     </div>
 </body>
 </html>
