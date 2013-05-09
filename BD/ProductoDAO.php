@@ -60,6 +60,7 @@ class ProductoDAO extends ConexionGeneral{
         $sentencia = "SELECT * FROM productos $condicion ORDER BY nombre_producto ASC ";
         $resultado_peticion = $this->ejecutarConsulta($sentencia, $conexion);
 
+        echo $sentencia;
         
         $indice = 0;
         $productos = array();
