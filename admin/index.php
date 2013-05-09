@@ -1,8 +1,8 @@
 <?php
-include '/includes/db.php';
-include 'includes/funciones.php';
+include_once '../BD/ConexionGeneral.php';
+include_once './includes/funciones.php';
 
-if(!isset($_GET[modulo])){ $_GET[modulo] = 'banners'; }
+if(!isset($_GET[modulo])){ $_GET[modulo] = 'productos'; }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -62,7 +62,9 @@ $().ready(function(e) {
 			</ul>
 		</div>
 		<div class="span10">
-			<?php include $_GET[modulo].'.php'; ?> <!-- Código para el funcionamiento ?modulo=nombre_archivo -->
+			<?php include $_GET[modulo].'.php'; 
+			$modulo = "bienvenido";
+			?> <!-- Código para el funcionamiento ?modulo=nombre_archivo -->	
 		</div>
 	</div>
 </div>

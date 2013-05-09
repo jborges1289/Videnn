@@ -1,12 +1,20 @@
 <?php
 
- include_once 'conexionBd.php';
-$link=  getConeccion('bd_videnn');
-if (isset($_POST['btn_sesion'])) {
-    // se buscara en la base de datos
-    $sql="select * from usuarios where usuario='".$_POST['user']."' and contrasenia='".$_POST['pass']."'";
-    $result=mysql_query($sql, $link);
-    $filaAfectada=  mysql_affected_rows($link);
+include_once 'BD/UsuarioDAO.php';
+
+$login = new UsuarioDAO();
+$usuario = $_POST['user'];
+$contrasenia = $_POST['pass'];
+
+	if (isset($_POST['btn_sesion'])) {
+		$login->loginUsuario($usuario, $contrasenia);
+	}
+
+		if ($usuarioRegistrado) {
+			header("location:admin/index.php");
+		}	
+?>
+laAfectada=  mysql_affected_rows($link);
     if ($filaAfectada==1) { //si se encuentra     
         $_SESSION['registrado'] = 1;
         $txtc=mysql_fetch_row($result);

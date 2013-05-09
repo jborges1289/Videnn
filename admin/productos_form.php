@@ -1,10 +1,10 @@
 <?php
 
-include_once '/BD/ConexionGeneral.php';
+include_once '../BD/ConexionGeneral.php';
 //Ingreso y actualizacion
 if(isset($_POST[nombre]))
 {
-	include 'includes/funciones.php';
+	include_once './includes/funciones.php';
 		
 	header("Location: ./?modulo=productos_form&id={$id}&registroExitoso");
 }

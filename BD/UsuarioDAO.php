@@ -104,6 +104,23 @@ class UsuarioDAO extends ConexionGeneral{
         return $existeUsuario;
     }
     
+    public function loginUsuario($usuario, $contrasenia) {
+	    $conexion = $this->abrirConexion();
+        $usuarioRegistrado = true;
+        $sentencia="SELECT * FROM usuarios WHERE usuario='" .mysql_real_escape_string($usuario). "' and contrasenia='" . mysql_real_escape_string($contrasenia) . "'";
+        $resultado = $this->ejecutarConsulta($sentencia, $conexion);
+        if (!$resultado) {
+            $cerror = "No fue posible recuperar la información de la base de datos.<br>";
+            $cerror .= "SQL: $sentencia <br>";
+            $cerror .= "Descripción: " . mysql_error($conexion);
+            die($cerror);
+        } else {
+            if (mysql_num_rows($resultado) === 0)
+                $usuarioRegistrado = false;
+        }      
+        return $usuarioRegistrado;
+    }
+    
     
 }
 
