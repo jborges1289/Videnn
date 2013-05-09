@@ -60,7 +60,7 @@ class ServicioProducto {
     
     public function obtenerTodosProductosBotones() {
         $productoDAO = new ProductoDAO();
-        $tipo = "2";
+        $tipo = "1";
         $condicion = "WHERE id_tipo_p = '" . $tipo. "'";
 //          
         return $productoDAO->seleccionarTodosProductos($condicion);
@@ -68,30 +68,30 @@ class ServicioProducto {
     
     public function obtenerTodosProductosEspectaculares() {
         $productoDAO = new ProductoDAO();
-        $tipo = "3";
-        $condicion = "WHERE id_producto = " . $tipo. "";
+        $tipo = "2";
+        $condicion = "WHERE id_tipo_p = '" . $tipo. "'";
         return $productoDAO->seleccionarTodosProductos($condicion);
     }
     
     
     public function obtenerTodosProductosLonas() {
         $productoDAO = new ProductoDAO();
-        $tipo = "1";
-        $condicion = "WHERE id_producto = " . $tipo. "";
+        $tipo = "3";
+        $condicion = "WHERE id_tipo_p = '" . $tipo. "'";
         return $productoDAO->seleccionarTodosProductos($condicion);
     }
     
     public function obtenerTodosProductosToldos() {
       $productoDAO = new ProductoDAO();
         $tipo = "4";
-        $condicion = "WHERE id_producto = " . $tipo. "";
+        $condicion = "WHERE id_tipo_p = '" . $tipo. "'";
         return $productoDAO->seleccionarTodosProductos($condicion);
     }
     
     public function obtenerTodosProductosOffset() {
       $productoDAO = new ProductoDAO();
         $tipo = "5";
-        $condicion = "WHERE id_producto = " . $tipo. "";
+        $condicion = "WHERE id_tipo_p = '" . $tipo. "'";
         return $productoDAO->seleccionarTodosProductos($condicion);
     }
     

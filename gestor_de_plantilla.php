@@ -25,7 +25,7 @@ public function generarEncabezado(){
 	               <li class="dir" id="active"><a href="./index.php">Cat&aacutelogo</a>
 	                 <ul>
 	                   <li><a href="catalogoBotones.php">Botones</a></li>
-	                   <li><a href="catalogoEspectaculares.php">Espectacules</a></li>
+	                   <li><a href="catalogoEspectaculares.php">Espectaculares</a></li>
 	                   <li><a href="catalogoLonas.php">Lonas</a></li>
                            <li><a href="catalogoEstructuras.php">Toldos y Estructuras</a></li>
                            <li><a href="catalogoOffset.php">Offset</a></li>
@@ -51,13 +51,10 @@ public function generarEncabezado(){
                            </tr>                       
                             
                             <tr>
-<<<<<<< HEAD
-                             <td><input type="text" id="usr" name="usr"/></td>
-                             <td><input type="password" id="pass" name="pass" /></td>
-=======
+
                              <td><input type="text" id="user" name="user"/></td>
-                             </td><td><input type="password" id="pass" name="pass" /></td>
->>>>>>> b0c2ca36b0eeaa0a138e45ee4cee0a175103120b
+                             <td><input type="password" id="pass" name="pass" /></td>
+
                              <td><input type="submit" class="boton"  id="acceder" value="Entrar" name="btn_sesion"/></td>
                              </tr>
 

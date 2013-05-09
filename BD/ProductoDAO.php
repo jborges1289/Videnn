@@ -1,6 +1,7 @@
 <?php
- include_once '../BD/ConexionGeneral.php';
- include_once '../videnn/Producto.php';
+ include_once 'config.inc.php';
+ include_once 'ConexionGeneral.php';
+ include_once '/videnn/Producto.php';
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -15,28 +16,27 @@ class ProductoDAO extends ConexionGeneral{
     //put your code here
 
     
-    public function seleccionarProductoPorNombre($nombre) {
-        $conexion=$this->abrirConexion();      
-         $sentencia = "SELECT * FROM productos WHERE nombre_producto ='" . mysql_real_escape_string($nombre) . "' ";
-        $resultado = $this->ejecutarConsulta($sentencia, $conexion);
-      
-       $producto = NULL;
-
-        while ($fila = mysql_fetch_array($resultado)) {
-            $producto = new Producto($fila["id_producto"],$fila["nombre_producto"], $fila["descripcion"], $fila["precio_unitario"], $fila["url_imagen"], $fila["id_tipo_"]);
-          echo $producto;
-       }
-            return $producto;
+     public function seleccionarProductoPorNombre($nombre) {
+        $conexion=$this->abrirConexion();        
+        $sql = "SELECT * FROM productos WHERE nombre_producto ='" . mysql_real_escape_string($nombre) . "'";
+       echo $sql;
+        $resultado = $this->ejecutarConsulta($sql, $conexion);
         
+        
+        $producto=null;
+        while ($fila = mysql_fetch_array($resultado)) {
+            $producto = new Producto($fila["id_producto"],$fila["nombre_producto"], $fila["descripcion"], $fila["precio_unitario"], $fila["url_imagen"], $fila["tipo_producto"]);
+            return $producto;
+        }
         $this->cerrarConexion($conexion);        
-        return $producto;    
+        return $producto;
     }
 
-    public function insertarProducto($nombre, $descripcion, $precio, $url) {
+    public function insertarProducto($nombre, $descripcion, $precio, $url, $tipo) {
         $registroExitoso = false;
         $conexion = $this->abrirConexion();
-        $sentencia = "INSERT INTO productos (nombre_producto, descripcion, precio_unitario, url_imagen)
-            VALUES ('" . $nombre . "', '" . $descripcion . "', '".$precio."', '" . $url . "')";
+        $sentencia = "INSERT INTO productos (nombre_producto, descripcion, precio_unitario, url_imagen, tipo_producto)
+            VALUES ('" . $nombre . "', '" . $descripcion . "', '".$precio."', '" . $url . "', '".$tipo."')";
         
         if ($this->ejecutarConsulta($sentencia, $conexion)) {
             $registroExitoso = true;
@@ -57,15 +57,16 @@ class ProductoDAO extends ConexionGeneral{
 
     public function seleccionarTodosProductos($condicion) {
         $conexion = $this->abrirConexion();        
-        $sentencia = "SELECT * FROM productos $condicion ";
+        $sentencia = "SELECT * FROM productos $condicion ORDER BY nombre_producto ASC ";
         $resultado_peticion = $this->ejecutarConsulta($sentencia, $conexion);
 
-        echo $sentencia;
         
         $indice = 0;
         $productos = array();
+        
         while ($fila = mysql_fetch_array($resultado_peticion)) { 
-            echo $fila;
+           
+            
             $productos[$indice] = new Producto($fila["id_producto"],$fila["nombre_producto"], $fila["descripcion"], $fila["precio_unitario"], $fila["url_imagen"], $fila["id_tipo_p"]);
             $indice++;
         }

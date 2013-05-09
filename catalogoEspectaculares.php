@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--/* 
-    Document   : catalogoBotones
+    Document   : catalogoEspectaculares
     Created on : 25-abr-2013, 12:39:16
     Author     : giselly_2003
     Description:
@@ -53,66 +53,13 @@
 				  	
 			  	</div>
 			  	<div id="categoria1" class="productos">
-				  	<div  id="activado" class="producto">
-				  		<img onclick="javascript:mostrar_ventana('159854','botones1','$8','img/botones/pines1.jpg');" width="350px" height="150px" src="img/espectaculares/espec1.jpg">
-
-				  	</div>
-                                           <?php
-                    
-                                                $informacionProducto = new gestor_de_catalogo();
-                                                echo  $informacionProducto->generar_infoEspectaculares();
-
-                    
-                                           ?>
+				  	<?php
+                                   
+                                    $catalogoEspectaculares = new gestor_de_catalogo();
+                                  echo  $catalogoEspectaculares->generarCatalogoEspectaculares();
+                               
                                     
-				  	<div class="producto">
-				  		<img onclick="javascript:mostrar_ventana('1243','Cacharel','$600','img/botones/pines1.jpg');" width="350px" height="150px" src="img/espectaculares/espec2.jpg">
-				  	</div>
-                                    
-                                            <?php
-                    
-                                                $informacionProducto = new gestor_de_catalogo();
-                                                echo  $informacionProducto->generar_infoEspectaculares();
-
-                    
-                                           ?>
-				  	<div class="producto">
-				  		<img onclick="javascript:mostrar_ventana('134536','Cacharel','$700','img/Damas/3.png');" width="350px" height="150px" src="img/espectaculares/espec3.jpg">
-				  	</div>
-                                  
-                                            <?php
-                    
-                                                $informacionProducto = new gestor_de_catalogo();
-                                                echo  $informacionProducto->generar_infoEspectaculares();
-
-                    
-                                           ?>
-                              
-                                    
-                                            
-				  	<div class="producto">
-				  		<img onclick="javascript:mostrar_ventana('234421','Cacharel','$800','img/Damas/4.png');" width="350px" height="150px" src="img/espectaculares/espec4.jpg">
-                                               
-				  	</div>
-                                    
-                                            <?php
-                    
-                                                $informacionProducto = new gestor_de_catalogo();
-                                                echo  $informacionProducto->generar_infoEspectaculares();
-
-                    
-                                            ?>
-				  	<div class="producto">
-				  		<img onclick="javascript:mostrar_ventana('63321','Cacharel','$900','img/Damas/5.png');" width="350px" height="150px" src="img/Damas/5.png">
-				  	</div>
-                                    
-                                            <?php
-                    
-                                                $informacionProducto = new gestor_de_catalogo();
-                                                echo  $informacionProducto->generar_infoEspectaculares();
-
-                    
-                                            ?>
+                                    ?>
 				  	
 			  	</div>
 			  </div>
