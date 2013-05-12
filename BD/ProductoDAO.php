@@ -25,14 +25,18 @@ class ProductoDAO extends ConexionGeneral{
         
         $producto=null;
         while ($fila = mysql_fetch_array($resultado)) {
-            $producto = new Producto($fila["id_producto"],$fila["nombre_producto"], $fila["descripcion"], $fila["precio_unitario"], $fila["url_imagen"], $fila["tipo_producto"]);
+-            $producto = new Producto($fila["id_producto"],$fila["nombre_producto"], $fila["descripcion"], $fila["precio_unitario"], $fila["url_imagen"], $fila["tipo_producto"]);
+
             return $producto;
         }
         $this->cerrarConexion($conexion);        
         return $producto;
     }
+    
 
-    public function insertarProducto($nombre, $descripcion, $precio, $url, $tipo) {
+
+
+        public function insertarProducto($nombre, $descripcion, $precio, $url, $tipo) {
         $registroExitoso = false;
         $conexion = $this->abrirConexion();
         $sentencia = "INSERT INTO productos (nombre_producto, descripcion, precio_unitario, url_imagen, tipo_producto)
@@ -111,6 +115,23 @@ class ProductoDAO extends ConexionGeneral{
         }        
         return $existeProducto;
     }
+    
+    public function buscarProducto($texto){
+		$conexion = $this->abrirConexion();
+		$sql = "SELECT * FROM productos e WHERE e.nombre_producto LIKE '%".$texto."%'";
+		$resultado = $this->ejecutarConsulta($sql, $conexion);
+		$productos = array();
+		$index = 0;
+		while($fila = mysql_fetch_array($resultado)) {
+			echo mysql_error();
+			$producto= new Producto($fila['id_producto'],$fila['nombre_producto'], $fila['descripcion'], $fila['precio_unitario'],$fila['url_imagen'], $fila['tipo']);
+			$producto->setId_producto($fila['id_producto']);
+			$productos[$index]=$producto;
+			$index++;
+		}
+		return $productos;
+	}
+    
     
     
 }

@@ -66,8 +66,8 @@ public function generarEncabezado(){
                          </li>
                          
 <li id="search"> 
-                       <form action="#" method="post" id="searching"> 
-                       <input class="input_search" type="text" value="Buscar en Videnn" onclick="this.value=\'\'; this.onclick=\'\'"> <input id="img_lupa" value="" type="submit" >
+                       <form action="ResultadosBusqueda.php" method="get" id="searching"> 
+                       <input class="input_search" name = "buscar" type="text" value="buscar" onclick="this.value=\'\'; this.onclick=\'\'"> <input id="img_lupa" value="" type="submit" name="Busqueda" value ="Buscar" >
                        </form>
                     </li> 
                          

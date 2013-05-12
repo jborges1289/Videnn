@@ -47,6 +47,7 @@ class gestor_de_catalogo{
             
         return $controladorProducto->catalogoProductosOffset();
     }
+    
 }
 
 

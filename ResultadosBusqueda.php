@@ -11,7 +11,8 @@
 
 include_once './gestor_de_plantilla.php';
 include_once './gestor_de_catalogo.php';
-include_once 'BD/ProductoDAO.php';
+include_once './ControladorBusqueda.php';
+$texto =$_GET['buscar'];
 
 ?>
 
@@ -42,33 +43,32 @@ echo  $encabezado->generarEncabezado();
 
                     ?>
 
-                <h1>Pines & Botones</h1>   
-
-
+                <h1>Resultados de Busqueda</h1> 
                 <div id="contenido">
+                      
+                      
+                      <!--aaa-->
+			  <div id="categorias">
+			  	<div id="listaCont">
+				  	
+			  	</div>
+			  	<div id="categoria1" class="productos">
+                
+                <?php
+			$controladorBusqueda = new ControladorBusqueda();
+			echo $controladorBusqueda->buscar($texto);
+		?>
+                                    
+                                        
+			  	</div>
+			  </div>
+		  </div>
+		  <!-- TemplateEndEditable -->
+		  <div id="footer">
+		  </div>
+		</div>     
 
 
-                    <!--aaa-->
-                        <div id="categorias">
-                                <div id="listaCont">
-
-                                </div>
-                                <div id="categoria1" class="productos">
-
-                                    <?php
-
-                                    $catalogoBotones = new gestor_de_catalogo();
-                                echo  $catalogoBotones->generarCatalogoBotones();
-
-
-                                    ?>
-
-                                </div>
-                        </div>
-                </div>
-                <!-- TemplateEndEditable -->
-                <div id="footer">
-                </div>
-                </div>     
+                 
 </body>
 </html>
