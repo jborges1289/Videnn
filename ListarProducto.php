@@ -13,12 +13,13 @@ class ListarProducto{
         $cadena_post = "";
         $index = 1;
         $class ="producto";
+          $id = "activado";
         foreach ($productos as $producto) {
          
            
             if ($index % 2 == 0)
                 $class = "producto";
-                $id = "activado";
+              
                 $_id = "imagen";
             $cadena_post .='            <div id="' . $id . '" class="' . $class . '"  >' . $SALTO;
             $cadena_post .='                <img id="'.$_id.'"   src=" ' . $producto->getUrl() .'" >' . $SALTO;

@@ -410,8 +410,69 @@ public function generarEditarRegistro(){
     
 }
 
-    
-    
+ public function generadorDePie(){
+     
+    return '
+        
+<div>
+
+
+<table id="footer" align="center">
+
+<tr>
+
+<th>
+Inicio
+</th>
+
+<th>
+Cat&aacute;logo
+</th>
+
+<th>
+Nosotros
+</th>
+
+<th>
+Contacto
+</th>
+
+</tr>
+
+<tr>
+
+<td>
+
+<td>
+<li> Botones  </li>
+<li> Espectaculares </li>
+<li> Lonas  </li>
+<li> Toldos & Estructuras </li>
+<li> Offset </li>
+<td
+<tr>
+
+</table>
+
+
+
+<div>
+
+
+';
+     
+     
+ }   
+   
+ public function generadorCopyright(){
+     
+     return ' <div id = "copyright">
+          
+COPYRIGHT&copy GAMES 2013
+
+         </div>';
+ }
+ 
     
     
 }

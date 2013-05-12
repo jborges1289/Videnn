@@ -95,7 +95,18 @@
 
 		</div>
                             
-	
+                            
+                            
+                      <?php
+                      
+                      
+                            $copyright = new gestor_de_plantilla();
+                         echo   $copyright->generadorCopyright();
+                      
+                        
+                      
+                         ?>   
+                </div>
 
 
 </body>

@@ -64,7 +64,7 @@ class ProductoDAO extends ConexionGeneral{
         $sentencia = "SELECT * FROM productos $condicion ORDER BY nombre_producto ASC ";
         $resultado_peticion = $this->ejecutarConsulta($sentencia, $conexion);
 
-        echo $sentencia;
+
         
         $indice = 0;
         $productos = array();
@@ -124,7 +124,7 @@ class ProductoDAO extends ConexionGeneral{
 		$index = 0;
 		while($fila = mysql_fetch_array($resultado)) {
 			echo mysql_error();
-			$producto= new Producto($fila['id_producto'],$fila['nombre_producto'], $fila['descripcion'], $fila['precio_unitario'],$fila['url_imagen'], $fila['tipo']);
+			$producto= new Producto($fila['id_producto'],$fila['nombre_producto'], $fila['descripcion'], $fila['precio_unitario'],$fila['url_imagen'], $fila['id_tipo_p']);
 			$producto->setId_producto($fila['id_producto']);
 			$productos[$index]=$producto;
 			$index++;

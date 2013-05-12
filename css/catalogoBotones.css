@@ -18,7 +18,7 @@
 	width: 350px;
         height: 180px;
 	float: left;
-	border:1px solid #D9D9D9 ;
+	border:3px solid #D9D9D9 ;
 	border-radius: 10px;
 /*	padding: 20px 10px 20px 30px;*/
 	margin-right: 35px;
@@ -66,6 +66,7 @@ h1{
         height: 180px;
 	float: left;
 	border-radius: 10px;
+      
 	
 	
 }
