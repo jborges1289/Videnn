@@ -4,6 +4,7 @@ session_start();
 include_once 'BD/ConexionGeneral.php';
 include_once 'BD/UsuarioDAO.php';
 
+
 // store session data
 $_SESSION['views']=1;
 

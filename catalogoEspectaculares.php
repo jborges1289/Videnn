@@ -9,9 +9,9 @@
 
  <?php
                   
- include_once './gestor_de_plantilla.php';
+  include_once './gestor_de_plantilla.php';
   include_once './gestor_de_catalogo.php';
-                  
+  include_once 'videnn/Producto.php';                 
 ?>
 
 

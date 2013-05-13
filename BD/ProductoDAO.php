@@ -1,7 +1,7 @@
 <?php
  include_once 'config.inc.php';
  include_once 'ConexionGeneral.php';
- include_once './videnn/Producto.php';
+ include_once '../videnn/Producto.php';
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
