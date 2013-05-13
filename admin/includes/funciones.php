@@ -18,7 +18,7 @@ function isAdmin()
 
 function active($s)
 {
-	if($_GET[modulo] == $s)
+	if($_GET['modulo'] == $s)
 	{
 		echo "class='active'";
 	}

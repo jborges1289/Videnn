@@ -83,34 +83,44 @@ class ControladorUsuario {
 //            header("Location: " . $GLOBALS['raiz_sitio']);
 //        }
 //    }
+    
+     function obtenerUsuariosPorOrdenIdC() {
+//        if (isset($_POST["obtener_productos"]) && $_POST["obtener_productos"] == "obtener") {
+            $servicioUsuario = new ServicioUsuario();
+            return $servicioUsuario->obtenerTodosUsuariosOrdenId();
+//        }
+    }
+    
+    
 
-//    function tablaUsuarios() {
-//        $profesores = $this->obtenerUsuarioesC();
-//        $SALTO = "\n";
-//        $cadena_post = "";
-//        $index = 1;
-//        foreach ($profesores as $profesor) {
-//            $class = "";
-//            if ($index % 2 == 0)
-//                $class = "par";
-//            $cadena_post .='            <tr class="' . $class . '">' . $SALTO;
-//            $cadena_post .='                <td>' . $profesor->getIdUsuario() . '</td>' . $SALTO;
-//            $cadena_post .='                <td>' . $profesor->getNombre() . '</td>' . $SALTO;
-//            $cadena_post .='                <td>' . $profesor->getApellidoP() . '</td>' . $SALTO;
-//            $cadena_post .='                <td>' . $profesor->getApellidoM() . '</td>' . $SALTO;
-//            $cadena_post .='                <td>' . $profesor->getIdUsuario() . '</td>' . $SALTO;
-//            $cadena_post .='                <td>' . $profesor->getContrasena() . '</td>' . $SALTO;
-//
-//            $cadena_post .='               	<td class="borrar"><a onclick = "confirmarEliminacionUsuario(' . $profesor->getIdUsuario() . ')" href="#"><img src="img/utileria/borrar.png" alt="Borrar"/></a></td>' . $SALTO;
-//
-//            $cadena_post .='            </tr>' . $SALTO;
-//            $index++;
-//        }
-//        if ($cadena_post == "") {
-//            $cadena_post .="<tr><td colspan='4'>No hay profesores registrados</td></tr>" . $SALTO;
-//        }
-//        return $cadena_post;
-//    }
+function tablaUsuarios() {
+       $usuarios= $this->obtenerUsuariosPorOrdenIdC();
+              $SALTO = "\n";
+
+        $cadena_post = "";
+        $index = 1;
+        foreach ($usuarios as $usuario) {
+            $class = "";
+            if ($index % 2 == 0)
+                $class = "par";
+            $cadena_post .='            <tr class="' . $class . '">' . $SALTO;
+            $cadena_post .='                <td>' . $usuario->getId_Usuario() . '</td>' . $SALTO;
+            $cadena_post .='                <td>' . $usuario->getNombre() . '</td>' . $SALTO;
+            $cadena_post .='                <td>' . $usuario->getUsuario() . '</td>' . $SALTO;
+            $cadena_post .='                <td>' . $usuario->getContrasenia() . '</td>' . $SALTO;
+//            $cadena_post .='                <td>' . $usuario->getIdUsuario() . '</td>' . $SALTO;
+//            $cadena_post .='                <td>' . $usuario->getContrasena() . '</td>' . $SALTO;
+
+            $cadena_post .='               	<td class="borrar"><a onclick = "confirmarEliminacionUsuario(' . $usuario->setId_Usuario($id_usuario) . ')" href="#"><img src="img/utileria/borrar.png" alt="Borrar"/></a></td>' . $SALTO;
+
+            $cadena_post .='            </tr>' . $SALTO;
+            $index++;
+        }
+        if ($cadena_post == "") {
+            $cadena_post .="<tr><td colspan='4'>No hay usuarios registrados</td></tr>" . $SALTO;
+        }
+        return $cadena_post;
+    }
     
     
 }

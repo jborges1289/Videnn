@@ -7,18 +7,18 @@ include_once './includes/funciones.php';
 if(isset($_SESSION['views'])) {
 	$_SESSION['views']=$_SESSION['views']+1;	
 
-if(!isset($_GET[modulo])){ $_GET[modulo] = 'productos'; }
+if(!isset($_GET['modulo'])){ $_GET['modulo'] = 'productos'; }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>BS Diving - Panel de control</title>
+<title> .: Videnn - Panel de control :.</title>
 <!--Estilos Nexor-->
 <link rel="stylesheet" href="style.css" type="text/css" />
 <link rel="stylesheet" href="js/table/css/table.css" type="text/css" />
 <!--jQueryUI-->
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
 <!--Bootstrap-->
 <script src="js/bootstrap/js/bootstrap.min.js"></script>
@@ -66,8 +66,7 @@ $().ready(function(e) {
 			</ul>
 		</div>
 		<div class="span10">
-			<?php include $_GET[modulo].'.php'; 
-			$modulo = "bienvenido";
+			<?php include $_GET['modulo'].'.php'; 
 			?> <!-- Código para el funcionamiento ?modulo=nombre_archivo -->	
 		</div>
 	</div>

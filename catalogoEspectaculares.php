@@ -66,7 +66,8 @@
 		  </div>
 		  <!-- TemplateEndEditable -->
 		  <div id="footer">
-                       <?php
+           
+                    <?php
                     $footer = new gestor_de_plantilla();
                     echo $footer->generadorDePie();
                     ?>
