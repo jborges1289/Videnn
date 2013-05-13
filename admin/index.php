@@ -16,7 +16,6 @@ if(!isset($_GET[modulo])){ $_GET[modulo] = 'productos'; }
 <title>BS Diving - Panel de control</title>
 <!--Estilos Nexor-->
 <link rel="stylesheet" href="style.css" type="text/css" />
-<link rel="stylesheet" href="style3.css" type="text/css" />
 <link rel="stylesheet" href="js/table/css/table.css" type="text/css" />
 <!--jQueryUI-->
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
@@ -57,7 +56,7 @@ $().ready(function(e) {
 <div class="container-fluid">
 	<div class="row-fluid">
 		<div class="span2" id="menuLateral">
-			<div class="text-center"><img src="images/logo.png" class="inMenu" /></div>
+			<div class="text-center"><img src="../img/logo_vidden2.png" class="inMenu" /></div>
 			<h4 class="menuEncabezado">Elija una opción</h4>
 			<ul class="nav  nav-stacked nav-tabs nav-list">
 				
