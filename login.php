@@ -13,26 +13,31 @@ $log = $_POST['btn_sesion'];
 
 	if (isset($log)) {
 		$login = new UsuarioDAO();
-		$login->loginUsuario($usuario, $contrasenia);
+		$Admon = $login->loginUsuario($usuario, $contrasenia);
 
-		if ($login == true) {
+              
+                
+                
+		if ($Admon) {
 			header("location:admin/index.php");
 		} else {
-			echo "Usuario / Contraseña incorrectos. Redirigiendo en 3 segundos.";
-			header("Refresh: 3; url=./index.php");
+			echo '<script languaje="javascript"> alert("Usuario y/o Contrase\u00f1a incorrectos. Redirigiendo en 2 segundos")</script>';
+			header("Refresh: 2; url=./index.php");
 		}
 			
 	}
 ?>
+
 <? ob_flush(); ?>
 
-;
+<!--;
         header("Refresh: 3; url=index.php");        
-        echo 'Nombre de usuario / contraseña incorrectos<br><br>';
+        echo 'Nombre de usuario / contraseï¿½a incorrectos<br><br>';
     }
 }
-
+Cuando el usuario es invalido sale esto de if() porque?
 if (isset($_SESSION['registrado']) && $_SESSION['registrado'] == 1) {
     header("location:admin/index.php");
 }
-?>
+?>-->
+

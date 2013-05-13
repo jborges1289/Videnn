@@ -1,6 +1,6 @@
 <?php
 
-include_once 'ProductoDAO.php';
+include_once 'UsuarioDAO.php';
 
 
 
@@ -28,9 +28,10 @@ include_once 'ProductoDAO.php';
 //$url = "////";
 //$tipo = "2";
 
-$producto = new ProductoDAO();
+$producto = new UsuarioDAO();
 //$producto->insertarUsuario($correo, $nombre, $apellido, $contrasenia, $fecha_n, $sexo, $telefono, $tipo)
 //$producto->actualizarUsuario($correo, $nombre, $apellido, $contrasenia, $fecha_n, $sexo, $telefono, $tipo)
 //$producto->seleccionarProductoPorNombre("Botones");
-$id = "2";
-$producto->seleccionarTodosProductos("WHERE id_tipo_p = '".$id."' ");
+$usuario = "jborges1289";   
+$contrasenia = "jb528";        
+$producto->loginUsuario($usuario, $contrasenia);
