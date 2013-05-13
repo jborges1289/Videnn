@@ -422,19 +422,19 @@ public function generarEditarRegistro(){
 <tr>
 
 <th>
-Inicio
+<a href="../Videnn/index.php">Inicio</a>
 </th>
 
 <th>
-Cat&aacute;logo
+<a href="./index.php">Cat&aacute;logo</a>
 </th>
 
 <th>
-Nosotros
+<a href="seccionNosotros.php">Nosotros</a>
 </th>
 
 <th>
-Contacto
+<a href="seccionContactos.php">Contacto</a>
 </th>
 
 </tr>
@@ -444,12 +444,13 @@ Contacto
 <td>
 
 <td>
-<li> Botones  </li>
-<li> Espectaculares </li>
-<li> Lonas  </li>
-<li> Toldos & Estructuras </li>
-<li> Offset </li>
-<td
+<li><a href="catalogoBotones.php"> Botones </a> </li>
+<li><a href="catalogoEspectaculares.php"> Espectaculares </a></li>
+<li><a href="catalogoLonas.php"> Lonas  </a></li>
+<li><a href="catalogoEstructuras.php"> Toldos & Estructuras </a></li>
+<li><a href="catalogoOffset.php"> Offset </a></li>
+
+</td>
 <tr>
 
 </table>

@@ -68,6 +68,15 @@ echo  $encabezado->generarEncabezado();
                 </div>
                 <!-- TemplateEndEditable -->
                 <div id="footer">
+                    <?php
+                    $footer = new gestor_de_plantilla();
+                    echo $footer->generadorDePie();
+                    ?>
+                    
+                    <?php
+                            $copyright = new gestor_de_plantilla();
+                         echo   $copyright->generadorCopyright();
+                    ?>
                 </div>
                 </div>     
 </body>

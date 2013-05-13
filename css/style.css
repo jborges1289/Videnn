@@ -288,3 +288,12 @@ input[type="text"]{
     
     
 }
+
+#footer{
+    height: 150px;
+  width: 980px;
+  color:  #000;
+  border-radius: 5px;
+  background:  #9da1a6;
+    
+}
