@@ -1,6 +1,5 @@
 <?php
 include_once 'ControladorProducto.php';
-
 /* 
     Document   : catalogoBotones
     Created on : 25-abr-2013, 12:39:16
@@ -52,3 +51,4 @@ class gestor_de_catalogo{
 
 
 ?>
+

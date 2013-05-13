@@ -13,6 +13,7 @@ include_once './gestor_de_plantilla.php';
 include_once './gestor_de_catalogo.php';
 include_once 'BD/ProductoDAO.php';
 include_once 'videnn/Producto.php';
+include_once './Servicios/ServicioProducto.php';
 
 ?>
 

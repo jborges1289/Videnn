@@ -2,7 +2,7 @@
 <?php
 session_start();
   include_once '../BD/ConexionGeneral.php';
-  include_once '../BD/ProductoDAO.php';  
+  include_once '../BD/ProductoDAOAdmin.php';  
   include_once '../videnn/Producto.php';
   
 if(isset($_SESSION['views'])) {

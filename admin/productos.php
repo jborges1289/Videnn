@@ -1,7 +1,6 @@
 <? ob_start(); ?>
 <?php
 session_start();
-
 if(isset($_SESSION['views'])) {
 	$_SESSION['views']=$_SESSION['views']+1;	  
 ?>
@@ -27,7 +26,7 @@ if(isset($_SESSION['views'])) {
 		</tr>
                 
                   <?php
-        include_once '../ControladorProducto.php';  
+        include_once '../ControladorProductoAdmin.php';  
         $TablaProductos = new ControladorProducto();
       echo  $TablaProductos->tablaProductos();
         

@@ -4,6 +4,7 @@ session_start();
 include_once '../BD/ConexionGeneral.php';
 include_once './includes/funciones.php';
 
+
 if(isset($_SESSION['views'])) {
 	$_SESSION['views']=$_SESSION['views']+1;	
 

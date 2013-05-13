@@ -21,7 +21,7 @@ public function generarEncabezado(){
  return ' <div id="header">
 				<img id="logo" src="img/logo_vidden2.png">
 	             <ul class="dropmenu">
-	               <li><a href="../Videnn/index.php">Inicio</a></li>
+	               <li><a href=".">Inicio</a></li>
 	               <li class="dir" id="active"><a href="./index.php">Cat&aacutelogo</a>
 	                 <ul>
 	                   <li><a href="catalogoBotones.php">Botones</a></li>
@@ -96,7 +96,7 @@ public function generarEncabezadoL(){
  return ' <div id="header">
 				<img id="logo" src="img/logo_vidden2.png">
 	             <ul class="dropmenu">
-	               <li><a href="Videnn/index.php">INICIO</a></li>
+	               <li><a href=".">INICIO</a></li>
 	               <li class="dir" id="active"><a href="./index.php">CAT&AacuteLOGO</a>
 	                 <ul>
 	                   <li><a href="#">BOTONES</a></li>
@@ -422,7 +422,7 @@ public function generarEditarRegistro(){
 <tr>
 
 <th>
-<a href="../Videnn/index.php">Inicio</a>
+<a href=".">Inicio</a>
 </th>
 
 <th>
@@ -501,6 +501,21 @@ public function generarEditarRegistro(){
      return ' <div id = "copyright">
           
 COPYRIGHT&copy GAMES 2013
+
+         </div>';
+ }
+ 
+    
+    
+}
+
+
+
+
+
+
+?>
+ 2013
 
          </div>';
  }
