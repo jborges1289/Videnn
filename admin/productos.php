@@ -5,7 +5,6 @@ if(isset($_SESSION['views'])) {
 	$_SESSION['views']=$_SESSION['views']+1;	  
 ?>
 
-?>
 <div id="topOptions" class="pull-right">
 	<a class="btn btn-small" href="?modulo=productos_form"><i class="icon-plus"></i> Registrar producto</a>
 </div>

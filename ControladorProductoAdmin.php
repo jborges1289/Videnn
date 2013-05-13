@@ -407,6 +407,7 @@ function catalogoProductosLonas() {
        $SALTO = "\n";
         $cadena_post = "";
         $index = 1;
+        $productoDAO = new productoDAO();
         foreach ($productos as $producto) {
             $class = "";
             if ($index % 2 == 0)
@@ -419,7 +420,12 @@ function catalogoProductosLonas() {
 //            $cadena_post .='                <td>' . $producto->getIdUsuario() . '</td>' . $SALTO;
 //            $cadena_post .='                <td>' . $producto->getContrasena() . '</td>' . $SALTO;
 
-            $cadena_post .='               	<td class="borrar"><a onclick = "confirmarEliminacionUsuario(' . $producto->getId_producto() . ')" href="#"><img src="images/borrar.png" alt="Borrar"/></a></td>' . $SALTO;
+            $cadena_post .='               	<td class="borrar"><button class="btn btn-danger" type="submit" name="borrar" onclick = " ' . $productoDAO->eliminarProducto($producto->getId_producto()) . '"><i class="icon-remove icon-white"></i> Borrar</button>
+            </td>' . $SALTO;
+            
+            
+            
+/*            <a onclick = "confirmarEliminacionUsuario(' . $producto->getId_producto() . ')" href="#"><img src="images/borrar.png" alt="Borrar"/></a></td>' . $SALTO;*/
 
             $cadena_post .='            </tr>' . $SALTO;
             $index++;
