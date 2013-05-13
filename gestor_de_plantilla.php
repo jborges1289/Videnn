@@ -464,7 +464,6 @@ public function generarEditarRegistro(){
      
      
  }   
-   
  public function generadorCopyright(){
      
      return ' <div id = "copyright">

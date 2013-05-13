@@ -13,7 +13,7 @@ if(!isset($_GET[modulo])){ $_GET[modulo] = 'productos'; }
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title> .: Videnn - Panel de control :.</title>
+<title>BS Diving - Panel de control</title>
 <!--Estilos Nexor-->
 <link rel="stylesheet" href="style.css" type="text/css" />
 <link rel="stylesheet" href="js/table/css/table.css" type="text/css" />

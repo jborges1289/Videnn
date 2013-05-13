@@ -130,26 +130,6 @@ public function insertarProducto($nombre, $descripcion, $precio, $url, $tipo) {
 		return $productos;
 	}
     
-       public function seleccionarTodosProductosOrdenId($condicion) {
-        $conexion = $this->abrirConexion();        
-        $sentencia = "SELECT * FROM productos $condicion ORDER BY id_producto ASC ";
-        $resultado_peticion = $this->ejecutarConsulta($sentencia, $conexion);
-
-
-        
-        $indice = 0;
-        $productos = array();
-        
-        while ($fila = mysql_fetch_array($resultado_peticion)) { 
-           
-            
-            $productos[$indice] = new Producto($fila["id_producto"],$fila["nombre_producto"], $fila["descripcion"], $fila["precio_unitario"], $fila["url_imagen"], $fila["id_tipo_p"]);
-            $indice++;
-        }
-        $this->cerrarConexion($conexion);
-        return $productos;
-    } 
-        
     
     
 }

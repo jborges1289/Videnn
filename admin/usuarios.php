@@ -22,17 +22,15 @@ if(isset($_SESSION['views'])) {
 			<th>Usuario</th>			
 			<th>Contrase&ntilde;a</th>
 		</tr>
-                <?php
-                
-                include_once '../ControladorUsuario.php';  
-        $TablaUsuarios = new ControladorUsuario();
-      echo  $TablaUsuarios->tablaUsuarios();
-                ?>
 	</thead>
-
-
-
-
+<?php
+$usuarioDAO = new UsuarioDAO();
+$usuarioDAO -> seleccionarTodosUsuarios("");
+foreach ($usuarioDAO as $usuario) {
+	print $usuario;	
+	echo $usuario;
+}
+?>
 </table>
 <?php
 } else {

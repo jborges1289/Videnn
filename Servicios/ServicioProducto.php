@@ -1,5 +1,5 @@
 <?php
-include_once '../BD/ProductoDAO.php';
+include_once 'BD/ProductoDAO.php';
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -56,13 +56,6 @@ class ServicioProducto {
         $productoDAO = new ProductoDAO();
         return $productoDAO->seleccionarTodosProductos("");
     }
-    
-    
-     public function obtenerTodosProductosOrdenId() {
-        $productoDAO = new ProductoDAO();
-        return $productoDAO->seleccionarTodosProductosOrdenId($condicion);
-    }
-    
     
     
     public function obtenerTodosProductosBotones() {

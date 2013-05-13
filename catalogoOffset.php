@@ -9,9 +9,9 @@
 
  <?php
                   
- include_once './gestor_de_plantilla.php';
+  include_once './gestor_de_plantilla.php';
   include_once './gestor_de_catalogo.php';
-                  
+  include_once 'videnn/Producto.php';                  
 ?>
 
 
@@ -66,6 +66,15 @@
 		  </div>
 		  <!-- TemplateEndEditable -->
 		  <div id="footer">
+                       <?php
+                    $footer = new gestor_de_plantilla();
+                    echo $footer->generadorDePie();
+                    ?>
+                    
+                    <?php
+                            $copyright = new gestor_de_plantilla();
+                         echo   $copyright->generadorCopyright();
+                    ?>
 		  </div>
 		</div>     
 </body>

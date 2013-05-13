@@ -12,6 +12,7 @@
 include_once './gestor_de_plantilla.php';
 include_once './gestor_de_catalogo.php';
 include_once 'BD/ProductoDAO.php';
+include_once 'videnn/Producto.php';
 
 ?>
 
@@ -68,7 +69,7 @@ echo  $encabezado->generarEncabezado();
                 </div>
                 <!-- TemplateEndEditable -->
                 <div id="footer">
-                    <?php
+                     <?php
                     $footer = new gestor_de_plantilla();
                     echo $footer->generadorDePie();
                     ?>
