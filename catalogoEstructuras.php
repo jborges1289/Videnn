@@ -11,7 +11,8 @@
                   
  include_once './gestor_de_plantilla.php';
   include_once './gestor_de_catalogo.php';
-  include_once 'videnn/Producto.php';                
+  include_once 'videnn/Producto.php';        
+  include_once 'BD/ProductoDAO.php';
 ?>
 
 
@@ -65,16 +66,13 @@
 			  </div>
 		  </div>
 		  <!-- TemplateEndEditable -->
-		  <div id="footer">
-                      $footer = new gestor_de_plantilla();
-                    echo $footer->generadorDePie();
-                    ?>
+		  <?php
+                    $footer = new gestor_de_plantilla();
+                  echo  $footer->generadorDePie();
                     
-                    <?php
                             $copyright = new gestor_de_plantilla();
                          echo   $copyright->generadorCopyright();
                     ?>
-		  </div>
 		</div>     
 </body>
 </html>

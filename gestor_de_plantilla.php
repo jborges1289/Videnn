@@ -440,18 +440,49 @@ public function generarEditarRegistro(){
 </tr>
 
 <tr>
-
 <td>
-
-<td>
-<li><a href="catalogoBotones.php"> Botones </a> </li>
-<li><a href="catalogoEspectaculares.php"> Espectaculares </a></li>
-<li><a href="catalogoLonas.php"> Lonas  </a></li>
-<li><a href="catalogoEstructuras.php"> Toldos & Estructuras </a></li>
-<li><a href="catalogoOffset.php"> Offset </a></li>
-
 </td>
+<td id="footer2">
+<a href="catalogoBotones.php"> Botones </a>
+<td>
+</tr>
+
 <tr>
+<td>
+</td>
+<td id="footer2">
+<a href="catalogoEspectaculares.php"> Espectaculares</a>
+</td>
+</tr>
+
+<tr>
+<td>
+</td>
+<td id="footer2">
+<a href="catalogoLonas.php"> Lonas  </a>
+</td>
+</tr>
+
+<tr>
+<td>
+</td>
+<td id="footer2">
+<a href="catalogoEstructuras.php"> Toldos & Estructuras </a>
+</td>
+</tr>
+
+<tr>
+<td>
+</td>
+<td id="footer2">
+<a href="catalogoOffset.php"> Offset </a>
+</td>
+
+
+</tr>
+
+
+
 
 </table>
 

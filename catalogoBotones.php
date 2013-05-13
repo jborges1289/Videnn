@@ -24,6 +24,7 @@ include_once 'videnn/Producto.php';
         <link rel="stylesheet" href="./css/style.css" />
     <!-- TemplateEndEditable -->
     <link rel="stylesheet" href="./css/catalogoBotones.css" />
+    
     <script language="JavaScript" src="./js/mostrarProducto.js"></script>
     <link rel="shortcut icon" href="img/icono_vidden.jpg"/>
     <!-- TemplateBeginEditable name="linksExternos" -->
@@ -68,7 +69,7 @@ echo  $encabezado->generarEncabezado();
                         </div>
                 </div>
                 <!-- TemplateEndEditable -->
-                <div id="footer">
+              
                     <?php
                     $footer = new gestor_de_plantilla();
                     echo $footer->generadorDePie();
@@ -79,6 +80,6 @@ echo  $encabezado->generarEncabezado();
                          echo   $copyright->generadorCopyright();
                     ?>
                 </div>
-                </div>     
+                     
 </body>
 </html>

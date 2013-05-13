@@ -65,8 +65,13 @@
 			  </div>
 		  </div>
 		  <!-- TemplateEndEditable -->
-		  <div id="footer">
-		  </div>
+		 <?php
+                    $footer = new gestor_de_plantilla();
+                  echo  $footer->generadorDePie();
+                    
+                            $copyright = new gestor_de_plantilla();
+                         echo   $copyright->generadorCopyright();
+                    ?>
 		</div>     
 </body>
 </html>

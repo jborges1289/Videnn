@@ -70,3 +70,38 @@ h1{
 	
 	
 }
+
+
+
+#footer, th{
+    opacity: .85;
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    padding: 10px 10px 10px 10px;
+    margin-left: 100px;
+    margin-right: 100px ;
+    width: 900px;
+    margin-top: 100px;
+    font-size: 11px;
+}
+
+#copyright{
+    
+     color: #000;
+    margin-top: 50px;
+    border-radius: 10px;
+    text-align: center;
+    font-family:Verdana, Geneva, sans-serif;
+    font-size: 10px;
+    color: #666666;
+    
+}
+
+
+#footer2{
+    
+    text-align: center;
+    
+    
+}
+
