@@ -184,6 +184,8 @@ class ControladorProducto {
                 $class = "producto";
                 $id = "activado";
                 $_id = "imagen";
+                $agrupado = "agrupado";
+            $cadena_post .='            <div id="' . $agrupado . '" style="float: left; width: 100%; margin-bottom: 50px;" >' . $SALTO;                
             $cadena_post .='            <div id="' . $id . '" class="' . $class . '"  >' . $SALTO;
             $cadena_post .='                <img id="'.$_id.'"   src=" ' . $producto->getUrl() .'" >' . $SALTO;
             $cadena_post .='             </div> ' . $SALTO;
@@ -206,7 +208,7 @@ class ControladorProducto {
             $cadena_post .= '            </strong> ' . $SALTO;
             $cadena_post .= '          </span> '. $SALTO;
             $cadena_post .= ' </div>  '. $SALTO;
-          
+            $cadena_post .= ' </div>  '. $SALTO;          
             $index++;
         }
         if ($cadena_post == "") {
@@ -232,7 +234,9 @@ function catalogoProductosLonas() {
             if ($index % 2 == 0)
                 $class = "producto";
                 $id = "activado";
+                $agrupado = "agrupado";
                 $_id = "imagen";
+            $cadena_post .='            <div id="' . $agrupado . '" style="float: left; width: 100%; margin-bottom: 50px;" >' . $SALTO;
             $cadena_post .='            <div id="' . $id . '" class="' . $class . '"  >' . $SALTO;
             $cadena_post .='                <img id="'.$_id.'"   src=" ' . $producto->getUrl() .'" >' . $SALTO;
             $cadena_post .='             </div> ' . $SALTO;
@@ -255,7 +259,7 @@ function catalogoProductosLonas() {
             $cadena_post .= '            </strong> ' . $SALTO;
             $cadena_post .= '          </span> '. $SALTO;
             $cadena_post .= ' </div>  '. $SALTO;
-          
+            $cadena_post .= ' </div>  '. $SALTO;          
             $index++;
         }
         if ($cadena_post == "") {
@@ -278,6 +282,8 @@ function catalogoProductosLonas() {
                 $class = "producto";
                 $id = "activado";
                 $_id = "imagen";
+                $agrupado = "agrupado";
+            $cadena_post .='            <div id="' . $agrupado . '" style="float: left; width: 100%; margin-bottom: 50px;" >' . $SALTO;                
             $cadena_post .='            <div id="' . $id . '" class="' . $class . '"  >' . $SALTO;
             $cadena_post .='                <img id="'.$_id.'"   src=" ' . $producto->getUrl() .'" >' . $SALTO;
             $cadena_post .='             </div> ' . $SALTO;
@@ -300,7 +306,7 @@ function catalogoProductosLonas() {
             $cadena_post .= '            </strong> ' . $SALTO;
             $cadena_post .= '          </span> '. $SALTO;
             $cadena_post .= ' </div>  '. $SALTO;
-          
+            $cadena_post .= ' </div>  '. $SALTO;          
             $index++;
         }
         if ($cadena_post == "") {
@@ -325,6 +331,8 @@ function catalogoProductosLonas() {
                 $class = "producto";
                 $id = "activado";
                 $_id = "imagen";
+                $agrupado = "agrupado";
+            $cadena_post .='            <div id="' . $agrupado . '" style="float: left; width: 100%; margin-bottom: 50px;" >' . $SALTO;                
             $cadena_post .='            <div id="' . $id . '" class="' . $class . '"  >' . $SALTO;
             $cadena_post .='                <img id="'.$_id.'"   src=" ' . $producto->getUrl() .'" >' . $SALTO;
             $cadena_post .='             </div> ' . $SALTO;
@@ -347,7 +355,7 @@ function catalogoProductosLonas() {
             $cadena_post .= '            </strong> ' . $SALTO;
             $cadena_post .= '          </span> '. $SALTO;
             $cadena_post .= ' </div>  '. $SALTO;
-          
+            $cadena_post .= ' </div>  '. $SALTO;          
             $index++;
         }
         if ($cadena_post == "") {
@@ -370,6 +378,8 @@ function catalogoProductosLonas() {
                 $class = "producto";
                 $id = "activado";
                 $_id = "imagen";
+                $agrupado = "agrupado";
+            $cadena_post .='            <div id="' . $agrupado . '" style="float: left; width: 100%; margin-bottom: 50px;" >' . $SALTO;                
             $cadena_post .='            <div id="' . $id . '" class="' . $class . '"  >' . $SALTO;
             $cadena_post .='                <img id="'.$_id.'"   src=" ' . $producto->getUrl() .'" >' . $SALTO;
             $cadena_post .='             </div> ' . $SALTO;
@@ -392,7 +402,7 @@ function catalogoProductosLonas() {
             $cadena_post .= '            </strong> ' . $SALTO;
             $cadena_post .= '          </span> '. $SALTO;
             $cadena_post .= ' </div>  '. $SALTO;
-          
+            $cadena_post .= ' </div>  '. $SALTO;          
             $index++;
         }
         if ($cadena_post == "") {

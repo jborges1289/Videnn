@@ -6,6 +6,10 @@
         Purpose of the stylesheet follows.
 */
 
+#agrupado {
+	width: 100%;
+}
+
 #categorias{
 	width: 960px;
 	float: left;
