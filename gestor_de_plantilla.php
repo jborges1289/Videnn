@@ -52,8 +52,8 @@ public function generarEncabezado(){
                             
                             <tr>
 
-                             <td><input type="text" id="user" name="user"/></td>
-                             <td><input type="password" id="pass" name="pass" /></td>
+                             <td><input type="text" id="user" name="user" required="required"/></td>
+                             <td><input type="password" id="pass" name="pass" required="required" /></td>
 
                              <td><input type="submit" class="boton"  id="acceder" value="Entrar" name="btn_sesion"/></td>
                              </tr>
