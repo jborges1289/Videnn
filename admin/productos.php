@@ -38,8 +38,23 @@ $().ready(function(){
 		<tr>
 			<th>Id</th>
 			<th>Nombre</th>
-			<th>Fecha</th>
-			<th>Precio</th>
+                        <th>Descripci&oacute;n</th>
+			<th>Precio unitario</th>
+                     
+<!--                        <th>Tipo</th>-->
+                        
+                        
+                        
 		</tr>
+                
+                  <?php
+        include_once '../ControladorProducto.php';  
+        $TablaProductos = new ControladorProducto();
+      echo  $TablaProductos->tablaProductos();
+        
+        ?>
+        
 	</thead>
+        
+      
 </table>

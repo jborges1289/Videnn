@@ -57,6 +57,10 @@ class ServicioUsuario {
         return $usuarioDAO->seleccionarTodosUsuarios("");
     }
 
-  
+  public function obtenerTodosUsuariosOrdenId() {
+        $usuarioDAO = new UsuarioDAO();
+        return $usuarioDAO->seleccionarTodosUsuariosOrdenId("");
+    }
+    
 }
 ?>

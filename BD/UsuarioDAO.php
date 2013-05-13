@@ -1,6 +1,6 @@
 <?php
  include_once 'ConexionGeneral.php';
- include_once './videnn/Usuario.php';
+ include_once '../videnn/Usuario.php';
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -134,6 +134,29 @@ class UsuarioDAO extends ConexionGeneral{
      
         return $usuarioRegistrado;
     }
+    
+    
+    
+    public function seleccionarTodosUsuariosOrdenId($condicion) {
+        $conexion = $this->abrirConexion();        
+        $sentencia = "SELECT * FROM usuarios $condicion ORDER BY id_usuario ASC ";
+        $resultado_peticion = $this->ejecutarConsulta($sentencia, $conexion);
+
+
+        
+        $indice = 0;
+        $usuarios = array();
+        
+        while ($fila = mysql_fetch_array($resultado_peticion)) { 
+           
+            
+            $usuarios[$indice] = new Usuario($fila["id_usuario"],$fila["nombre_completo"], $fila["usuario"], $fila["contrasenia"]);
+            $indice++;
+        }
+        $this->cerrarConexion($conexion);
+        return $usuarios;
+    } 
+    
     
     
 }
