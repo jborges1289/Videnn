@@ -49,7 +49,7 @@ echo  $encabezado->generarEncabezado();
                 <div id="contenido">
 
 
-                    <!--aaa-->
+                    <!--aa-->
                         <div id="categorias">
                                 <div id="listaCont">
 
