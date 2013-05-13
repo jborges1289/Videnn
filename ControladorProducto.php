@@ -419,7 +419,7 @@ function catalogoProductosLonas() {
 //            $cadena_post .='                <td>' . $producto->getIdUsuario() . '</td>' . $SALTO;
 //            $cadena_post .='                <td>' . $producto->getContrasena() . '</td>' . $SALTO;
 
-            $cadena_post .='               	<td class="borrar"><a onclick = "confirmarEliminacionUsuario(' . $producto->getId_producto() . ')" href="#"><img src="img/utileria/borrar.png" alt="Borrar"/></a></td>' . $SALTO;
+            $cadena_post .='               	<td class="borrar"><a onclick = "confirmarEliminacionUsuario(' . $producto->getId_producto() . ')" href="#"><img src="images/borrar.png" alt="Borrar"/></a></td>' . $SALTO;
 
             $cadena_post .='            </tr>' . $SALTO;
             $index++;

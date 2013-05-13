@@ -40,9 +40,6 @@ $().ready(function(e) {
 	// Validación de llenado de campos
 	$('.required').attr('required', true);
 	
-	// Script para fecha
-	$('.fecha').attr("readonly",true).datepicker({ dateFormat: 'yy-mm-dd', changeMonth: true, changeYear: true, showAnim: null, duration: '' });
-	
 	//Números
 	$('.dosDecimales').keydown(function(){ ForceNumericInput(this, true, false); });
 	//Sin decimales

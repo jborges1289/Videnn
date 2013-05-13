@@ -16,8 +16,9 @@ if(isset($_SESSION['views'])) {
 		<tr>
 			<th>Id</th>
 			<th>Nombre</th>
-                        <th>Descripci&oacute;n</th>
+            <th>Descripci&oacute;n</th>
 			<th>Precio unitario</th>
+			<th>Gestion</th>
                      
 <!--                        <th>Tipo</th>-->
                         

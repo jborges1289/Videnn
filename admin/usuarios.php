@@ -21,6 +21,7 @@ if(isset($_SESSION['views'])) {
 			<th>Nombre</th>
 			<th>Usuario</th>			
 			<th>Contrase&ntilde;a</th>
+			<th>Gestion</th>			
 		</tr>
                 <?php
                 
