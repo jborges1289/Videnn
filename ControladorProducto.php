@@ -87,13 +87,19 @@ class ControladorProducto {
         
         
         function obtenerProductosC() {
-        if (isset($_POST["obtener_productos"]) && $_POST["obtener_productos"] == "obtener") {
+//        if (isset($_POST["obtener_productos"]) && $_POST["obtener_productos"] == "obtener") {
             $servicioProducto = new ServicioProducto();
             return $servicioProducto->obtenerTodosProductos();
-        }
+//        }
     }
 
-    
+        function obtenerProductosPorOrdenIdC() {
+//        if (isset($_POST["obtener_productos"]) && $_POST["obtener_productos"] == "obtener") {
+            $servicioProducto = new ServicioProducto();
+            return $servicioProducto->obtenerTodosProductosOrdenId();
+//        }
+    }
+
     
     
     function eliminarProductoC() {
@@ -394,6 +400,36 @@ function catalogoProductosLonas() {
         }
         return $cadena_post;
     }
+    
+    
+    function tablaProductos() {
+       $productos = $this->obtenerProductosPorOrdenIdC();
+       $SALTO = "\n";
+        $cadena_post = "";
+        $index = 1;
+        foreach ($productos as $producto) {
+            $class = "";
+            if ($index % 2 == 0)
+                $class = "par";
+            $cadena_post .='            <tr class="' . $class . '">' . $SALTO;
+            $cadena_post .='                <td>' . $producto->getId_producto() . '</td>' . $SALTO;
+            $cadena_post .='                <td>' . $producto->getNombre_Producto() . '</td>' . $SALTO;
+            $cadena_post .='                <td>' . $producto->getDesc_producto() . '</td>' . $SALTO;
+            $cadena_post .='                <td>' . $producto->getPrecio_unitario() . '</td>' . $SALTO;
+//            $cadena_post .='                <td>' . $producto->getIdUsuario() . '</td>' . $SALTO;
+//            $cadena_post .='                <td>' . $producto->getContrasena() . '</td>' . $SALTO;
+
+            $cadena_post .='               	<td class="borrar"><a onclick = "confirmarEliminacionUsuario(' . $producto->getId_producto() . ')" href="#"><img src="img/utileria/borrar.png" alt="Borrar"/></a></td>' . $SALTO;
+
+            $cadena_post .='            </tr>' . $SALTO;
+            $index++;
+        }
+        if ($cadena_post == "") {
+            $cadena_post .="<tr><td colspan='4'>No hay productos registrados</td></tr>" . $SALTO;
+        }
+        return $cadena_post;
+    }
+    
     
 }
 $controladorProducto = new ControladorProducto();
