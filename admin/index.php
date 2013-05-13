@@ -1,6 +1,11 @@
+<? ob_start(); ?>
 <?php
+session_start();
 include_once '../BD/ConexionGeneral.php';
 include_once './includes/funciones.php';
+
+if(isset($_SESSION['views'])) {
+	$_SESSION['views']=$_SESSION['views']+1;	
 
 if(!isset($_GET[modulo])){ $_GET[modulo] = 'productos'; }
 ?>
@@ -70,3 +75,10 @@ $().ready(function(e) {
 </div>
 </body>
 </html>
+<?php
+} else {
+	echo "No session Started. Redirecting to index in 3 seconds.";
+ 	header("Refresh: 3; url=../index.php");
+}
+?>
+<? ob_flush(); ?>

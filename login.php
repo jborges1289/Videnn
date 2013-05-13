@@ -1,26 +1,32 @@
+<? ob_start(); ?>
 <?php
-
+session_start();
+include_once 'BD/ConexionGeneral.php';
 include_once 'BD/UsuarioDAO.php';
 
-$login = new UsuarioDAO();
+// store session data
+$_SESSION['views']=1;
+
 $usuario = $_POST['user'];
 $contrasenia = $_POST['pass'];
+$log = $_POST['btn_sesion'];
 
-	if (isset($_POST['btn_sesion'])) {
+	if (isset($log)) {
+		$login = new UsuarioDAO();
 		$login->loginUsuario($usuario, $contrasenia);
-	}
 
-		if ($usuarioRegistrado) {
+		if ($login == true) {
 			header("location:admin/index.php");
-		}	
+		} else {
+			echo "Usuario / Contraseña incorrectos. Redirigiendo en 3 segundos.";
+			header("Refresh: 3; url=./index.php");
+		}
+			
+	}
 ?>
-laAfectada=  mysql_affected_rows($link);
-    if ($filaAfectada==1) { //si se encuentra     
-        $_SESSION['registrado'] = 1;
-        $txtc=mysql_fetch_row($result);
-        $_SESSION['user']=$txtc[0];
-    } else {   // si no se encuentra
-        $_SESSION['registrado'] = 0;
+<? ob_flush(); ?>
+
+;
         header("Refresh: 3; url=index.php");        
         echo 'Nombre de usuario / contraseña incorrectos<br><br>';
     }

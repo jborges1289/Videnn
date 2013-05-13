@@ -1,8 +1,12 @@
 <? ob_start(); ?>
 <?php
+session_start();
 
  include_once '../BD/ConexionGeneral.php';
  include_once '../BD/UsuarioDAO.php';    
+
+if(isset($_SESSION['views'])) {
+	$_SESSION['views']=$_SESSION['views']+1;	  
 
 $titulo = 'Creación de un nuevo elemento de usuarios';
 $intro = 'Llene el siguiente formulario para crear el registro de un nuevo elemento de usuarios.';
@@ -73,4 +77,10 @@ $("#form1").submit(function(){
 	return false;
 });
 </script>
+<?php
+} else {
+	echo "No session Started. Redirecting to index in 3 seconds.";
+ 	header("Refresh: 3; url=../index.php");
+}
+?>
 <? ob_flush(); ?>

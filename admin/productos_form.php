@@ -1,9 +1,11 @@
 <? ob_start(); ?>
 <?php
-
+session_start();
   include_once '../BD/ConexionGeneral.php';
-  include_once '../BD/ProductoDAO.php';
+  include_once '../BD/ProductoDAO.php';  
   
+if(isset($_SESSION['views'])) {
+	$_SESSION['views']=$_SESSION['views']+1;	  
 
 $titulo = 'Creación de un nuevo elemento de productos';
 $intro = 'Llene el siguiente formulario para crear el registro de un nuevo elemento de productos.';
@@ -54,6 +56,7 @@ if(isset($registro)) {
 
 }
 ?>
+
 <h2><?=$titulo?></h2>
 <form id="form1" method="post" action="productos_form.php" class="marginTop20 form-horizontal blackLabel" enctype="multipart/form-data">
 	<fieldset>
@@ -121,4 +124,10 @@ $("#form1").submit(function(){
 	return false;
 });
 </script>
+<?php
+} else {
+	echo "No session Started. Redirecting to index in 3 seconds.";
+ 	header("Refresh: 3; url=../index.php");
+}
+?>
 <? ob_flush(); ?>

@@ -1,7 +1,13 @@
+<? ob_start(); ?>
 <?php
+session_start();
+
   include_once '../BD/ConexionGeneral.php';
   include_once '../BD/UsuarioDAO.php';  
   include_once '../ControladorUsuario.php';  
+
+if(isset($_SESSION['views'])) {
+	$_SESSION['views']=$_SESSION['views']+1;	  
 ?>
 
 <div id="topOptions" class="pull-right">
@@ -26,3 +32,10 @@ foreach ($usuarioDAO as $usuario) {
 }
 ?>
 </table>
+<?php
+} else {
+	echo "No session Started. Redirecting to index in 3 seconds.";
+ 	header("Refresh: 3; url=../index.php");
+}
+?>
+<? ob_flush(); ?>

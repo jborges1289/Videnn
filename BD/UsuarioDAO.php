@@ -1,6 +1,6 @@
 <?php
  include_once 'ConexionGeneral.php';
- include_once '../videnn/Usuario.php';
+ include_once './videnn/Usuario.php';
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -107,8 +107,8 @@ class UsuarioDAO extends ConexionGeneral{
     
     public function loginUsuario($usuario, $contrasenia) {
 	    $conexion = $this->abrirConexion();
-        $usuarioRegistrado = true;
-        $sentencia="SELECT * FROM usuarios WHERE usuario='" .mysql_real_escape_string($usuario). "' and contrasenia='" . mysql_real_escape_string($contrasenia) . "'";
+        $usuarioRegistrado = false;
+        $sentencia="SELECT * FROM usuarios WHERE usuario='" .mysql_real_escape_string($usuario). "' AND contrasenia='" . mysql_real_escape_string($contrasenia) . "'";
         $resultado = $this->ejecutarConsulta($sentencia, $conexion);
         if (!$resultado) {
             $cerror = "No fue posible recuperar la información de la base de datos.<br>";
@@ -117,7 +117,7 @@ class UsuarioDAO extends ConexionGeneral{
             die($cerror);
         } else {
             if (mysql_num_rows($resultado) === 0)
-                $usuarioRegistrado = false;
+                $usuarioRegistrado = true;
         }      
         return $usuarioRegistrado;
     }
