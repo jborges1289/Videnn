@@ -420,7 +420,10 @@ function catalogoProductosLonas() {
 //            $cadena_post .='                <td>' . $producto->getIdUsuario() . '</td>' . $SALTO;
 //            $cadena_post .='                <td>' . $producto->getContrasena() . '</td>' . $SALTO;
 
-            $cadena_post .='               	<td class="borrar"><button class="btn btn-danger" type="submit" name="borrar" onclick = " ' . $productoDAO->eliminarProducto($producto->getId_producto()) . '"><i class="icon-remove icon-white"></i> Borrar</button>
+/*            $cadena_post .='               	<td class="borrar"><button class="btn btn-danger" type="submit" name="borrar" onclick = " ' . $productoDAO->eliminarProducto($producto->getId_producto()) . '"><i class="icon-remove icon-white"></i> Borrar</button>
+            </td>' . $SALTO;*/
+            
+            $cadena_post .='               	<td class="borrar"><button class="btn btn-danger" type="submit" name="borrar"><i class="icon-remove icon-white"></i> Borrar</button>
             </td>' . $SALTO;
             
             
