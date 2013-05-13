@@ -1,6 +1,6 @@
 <?php
- include_once 'BD/ConexionGeneral.php';
- include_once 'videnn/Usuario.php';
+ include_once 'ConexionGeneral.php';
+ include_once '../videnn/Usuario.php';
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -54,7 +54,8 @@ class UsuarioDAO extends ConexionGeneral{
 
     public function seleccionarTodosUsuarios($condicion) {
         $conexion = $this->abrirConexion();        
-        $sentencia = "SELECT * FROM usuarios $condicion ORDER BY nombre ASC";
+        $sentencia = "SELECT * FROM usuarios $condicion";
+/*        $sentencia = "SELECT * FROM usuarios $condicion ORDER BY nombre ASC";*/
         $resultado = $this->ejecutarConsulta($sentencia, $conexion);
 
         $indice = 0;

@@ -1,39 +1,60 @@
+<? ob_start(); ?>
 <?php
 
-include_once '../BD/ConexionGeneral.php';
-//Ingreso y actualizacion
-if(isset($_POST[nombre]))
-{
-	include_once './includes/funciones.php';
-		
-	header("Location: ./?modulo=productos_form&id={$id}&registroExitoso");
+  include_once '../BD/ConexionGeneral.php';
+  include_once '../BD/ProductoDAO.php';
+  
+
+$titulo = 'Creación de un nuevo elemento de productos';
+$intro = 'Llene el siguiente formulario para crear el registro de un nuevo elemento de productos.';
+$nombre = $_POST['nombre'];
+$descripcion = $_POST['descripcion']; 
+$precio = $_POST['precio'];
+$tipo = $_POST['tipo'];
+$tmp_name = $_FILES['imagen']['tmp_name'];
+$url_name = $_FILES['imagen']['name'];
+
+if($tipo == 1) {
+$uploaddir = '../img/botones/';	
 }
 
-	//Marquesinas
-	$nombre = 'Creación de una nuevo producto';
-	$intro = 'Llene el siguiente formulario para crear el registro de una nuevo producto.';
-
-
-//Avisos
-if(isset($_GET[registroExitoso]))
-{
-	$ih = 'hidden';
+if($tipo == 2) {
+$uploaddir = '../img/espectaculares/';	
 }
-else
-{
-	$wh = 'hidden';
+
+if($tipo == 3) {
+$uploaddir = '../img/lonas/';	
+}
+
+if($tipo == 4) {
+$uploaddir = '../img/estructuras/';	
+}
+
+if($tipo == 5) {
+$uploaddir = '../img/offset/';	
+}
+
+
+$uploading =  move_uploaded_file($tmp_name, $uploaddir . $url_name); 
+$url = $uploaddir . $url_name;
+$registro = $_POST['registrarse'];
+
+
+if(isset($registro)) {
+
+	include 'includes/funciones.php';
+
+	if (isset($nombre) && isset($descripcion) && isset($precio) && $uploading) {
+		$ProductoDAO = new ProductoDAO();
+		$ProductoDAO -> insertarProducto($nombre, $descripcion, $precio, $url, $tipo);
+		header("Location: ./?modulo=productos");
+	} else {
+		echo 'Fallo el agregado.';
+	}
+
 }
 ?>
-<h2><?=$nombre?></h2>
-<div class="alert alert-block alert-warning <?=$wh?>">
-  <a class="close" data-dismiss="alert">×</a>
-  El registro ha sido guardado exitosamente.
-</div>
-<script>setTimeout(function(){ $('.alert:first').hide(); $('.alert:last').show();  },4000);</script>
-<div class="alert alert-block alert-info <?=$ih?>">
-  <a class="close" data-dismiss="alert">×</a>
-  <?=$intro?>
-</div>
+<h2><?=$titulo?></h2>
 <form id="form1" method="post" action="productos_form.php" class="marginTop20 form-horizontal blackLabel" enctype="multipart/form-data">
 	<fieldset>
 		<div class="control-group span12">
@@ -51,15 +72,25 @@ else
 		<div class="control-group">
 			<label for="imagen" class="control-label">Imagen</label>
 			<div class="controls">
-				<?php if(strlen($d[imagen_chica]) > 0){ ?>
-				<a href="data:image/jpeg;base64,<?=base64_encode($d[imagen_grande])?>" target="_<?=$d[id]?>"><img src="data:image/jpeg;base64,<?=base64_encode($d[imagen_chica])?>" /></a>
-				<?php } ?>
 				<input type="file" name="imagen" id="imagen" class="input-xlarge" accept="image/jpeg" />
 			</div>
+		<div class="control-group span12">
+			<label for="tipo" class="control-label">Tipo:</label>
+			<!--<div class="controls"><input type="text" name="tipo" id="tipo" value="<?=$d[tipo]?>" class="input-xlarge required" /></div>-->
+			<div class="controls">
+			<select name="tipo">
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>								
+				<option>4</option>				
+				<option>5</option>				
+			</select>
+			</div>
+		</div>
 		</div>
 		<div class="form-actions btn-group span7">
 			<a class="btn btn-danger" href="?modulo=productos"><i class="icon-remove icon-white"></i> Cancelar</a>
-			<button class="btn btn-primary" type="submit" ><i class="icon-ok icon-white"></i> Registrar</button>
+			<button class="btn btn-primary" type="submit" name="registrarse" ><i class="icon-ok icon-white"></i> Registrar</button>
 		</div>
 	</fieldset>
   <input type="hidden" name="identificador" value="<?=$_GET[id]?>" />
@@ -90,3 +121,4 @@ $("#form1").submit(function(){
 	return false;
 });
 </script>
+<? ob_flush(); ?>

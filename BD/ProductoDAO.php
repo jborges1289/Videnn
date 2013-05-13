@@ -1,7 +1,7 @@
 <?php
  include_once 'config.inc.php';
  include_once 'ConexionGeneral.php';
- include_once './/videnn/Producto.php';
+ include_once './videnn/Producto.php';
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -34,12 +34,10 @@ class ProductoDAO extends ConexionGeneral{
     }
     
 
-
-
-        public function insertarProducto($nombre, $descripcion, $precio, $url, $tipo) {
+public function insertarProducto($nombre, $descripcion, $precio, $url, $tipo) {
         $registroExitoso = false;
         $conexion = $this->abrirConexion();
-        $sentencia = "INSERT INTO productos (nombre_producto, descripcion, precio_unitario, url_imagen, tipo_producto)
+        $sentencia = "INSERT INTO productos (nombre_producto, descripcion, precio_unitario, url_imagen, id_tipo_p)
             VALUES ('" . $nombre . "', '" . $descripcion . "', '".$precio."', '" . $url . "', '".$tipo."')";
         
         if ($this->ejecutarConsulta($sentencia, $conexion)) {

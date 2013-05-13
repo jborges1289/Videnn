@@ -1,6 +1,6 @@
 <?php
 
-include_once 'BD/UsuarioDAO.php';
+include_once '../BD/UsuarioDAO.php';
 
 /*
  * To change this template, choose Tools | Templates
