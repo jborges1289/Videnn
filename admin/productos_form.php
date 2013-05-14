@@ -83,9 +83,9 @@ if(isset($registro)) {
 			<!--<div class="controls"><input type="text" name="tipo" id="tipo" value="<?=$d[tipo]?>" class="input-xlarge required" /></div>-->
 			<div class="controls">
 			<select name="tipo">
-				<option>1 Lona</option>
-				<option>2 Botones</option>
-				<option>3 Espectaculares</option>								
+				<option>1 Botones</option>
+				<option>2 Espectaculares</option>
+				<option>3 Lonas</option>								
 				<option>4 Toldos</option>				
 				<option>5 Offset</option>				
 			</select>

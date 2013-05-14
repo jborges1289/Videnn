@@ -419,8 +419,16 @@ function catalogoProductosLonas() {
             $cadena_post .='                <td>' . $producto->getPrecio_unitario() . '</td>' . $SALTO;
 //            $cadena_post .='                <td>' . $producto->getIdUsuario() . '</td>' . $SALTO;
 //            $cadena_post .='                <td>' . $producto->getContrasena() . '</td>' . $SALTO;
+<<<<<<< HEAD
            echo $id_producto = $producto->getId_producto();
             $cadena_post .='               	<td class="borrar"><button class="btn btn-danger" type="submit" name="eliminar_producto" onclick = "' .  $this->eliminarProductoC(mysql_real_escape_string($id_producto)). '"><i class="icon-remove icon-white"></i> Borrar</button>
+=======
+
+/*            $cadena_post .='               	<td class="borrar"><button class="btn btn-danger" type="submit" name="borrar" onclick = " ' . $productoDAO->eliminarProducto($producto->getId_producto()) . '"><i class="icon-remove icon-white"></i> Borrar</button>
+            </td>' . $SALTO;*/
+            
+            $cadena_post .='               	<td class="borrar"><button class="btn btn-danger" type="submit" name="borrar"><i class="icon-remove icon-white"></i> Borrar</button>
+>>>>>>> 5e3886b5ca501496899b68a55f39e1587483bfab
             </td>' . $SALTO;
             
             
