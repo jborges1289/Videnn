@@ -212,7 +212,11 @@ class ControladorProducto {
             $index++;
         }
         if ($cadena_post == "") {
-            $cadena_post .= ' <div id="' . $id . '" class="' . $class . '" > Cat&aacute;logo de botones/pines vac&iacute;o </div>' . $SALTO;
+           $cadena_post .=  '<div id="catalogo_vacio">'    .$SALTO;
+            $cadena_post .= '<img id="img_sad" src="img\sad_face.png">  '. $SALTO;
+            
+            $cadena_post .= ' <div id="catalogo1"> Cat&aacute;logo de Botones/Pines vac&iacute;o </div>' . $SALTO;
+          $cadena_post .= '</div>'.$SALTO;
         }
         return $cadena_post;
     }
@@ -263,7 +267,11 @@ function catalogoProductosLonas() {
             $index++;
         }
         if ($cadena_post == "") {
-            $cadena_post .= ' <div id="' . $id . '" class="' . $class . '" > Cat&aacute;logo de lonas vac&iacute;o </div>' . $SALTO;
+            $cadena_post .=  '<div id="catalogo_vacio">'    .$SALTO;
+            $cadena_post .= '<img id="img_sad" src="img\sad_face.png">  '. $SALTO;
+            
+            $cadena_post .= ' <div id="catalogo1"> Cat&aacute;logo de Lonas vac&iacute;o </div>' . $SALTO;
+          $cadena_post .= '</div>'.$SALTO;
         }
         return $cadena_post;
     }
@@ -310,7 +318,11 @@ function catalogoProductosLonas() {
             $index++;
         }
         if ($cadena_post == "") {
-            $cadena_post .= ' <div id="' . $id . '" class="' . $class . '" > Cat&aacute;logo de espectaculares vac&iacute;o </div>' . $SALTO;
+           $cadena_post .=  '<div id="catalogo_vacio">'    .$SALTO;
+            $cadena_post .= '<img id="img_sad" src="img\sad_face.png">  '. $SALTO;
+            
+            $cadena_post .= ' <div id="catalogo1"> Cat&aacute;logo de Espectaculares vac&iacute;o </div>' . $SALTO;
+          $cadena_post .= '</div>'.$SALTO;
         }
         return $cadena_post;
     }
@@ -362,7 +374,7 @@ function catalogoProductosLonas() {
             $cadena_post .=  '<div id="catalogo_vacio">'    .$SALTO;
             $cadena_post .= '<img id="img_sad" src="img\sad_face.png">  '. $SALTO;
             
-            $cadena_post .= ' <div id="catalogo1"> Cat&aacute;logo de toldos/estructuras vac&iacute;o </div>' . $SALTO;
+            $cadena_post .= ' <div id="catalogo1"> Cat&aacute;logo de Toldos/Estructuras vac&iacute;o </div>' . $SALTO;
           $cadena_post .= '</div>'.$SALTO;
         }
         return $cadena_post;
@@ -410,7 +422,11 @@ function catalogoProductosLonas() {
             $index++;
         }
         if ($cadena_post == "") {
-            $cadena_post .= ' <div id="' . $id . '" class="' . $class . '" > Cat&aacute;logo de offset vac&iacute;o </div>' . $SALTO;
+           $cadena_post .=  '<div id="catalogo_vacio">'    .$SALTO;
+            $cadena_post .= '<img id="img_sad" src="img\sad_face.png">  '. $SALTO;
+            
+            $cadena_post .= ' <div id="catalogo1"> Cat&aacute;logo de Offset vac&iacute;o </div>' . $SALTO;
+          $cadena_post .= '</div>'.$SALTO;
         }
         return $cadena_post;
     }
