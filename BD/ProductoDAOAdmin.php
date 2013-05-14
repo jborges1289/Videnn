@@ -22,10 +22,10 @@ class ProductoDAOAdmin extends ConexionGeneral{
         $sql = "SELECT * FROM productos WHERE id_producto ='" . $id_producto . "'";
         $resultado = $this->ejecutarConsulta($sql, $conexion);
         
-        $producto=null;
+        $producto=null;        
         while ($fila = mysql_fetch_array($resultado)) {
--            $producto = new Producto($fila["id_producto"],$fila["nombre_producto"], $fila["descripcion"], $fila["precio_unitario"], $fila["url_imagen"], $fila["tipo_producto"]);
-
+            $producto = new Producto($fila["id_producto"],$fila["nombre_producto"], $fila["descripcion"], $fila["precio_unitario"], $fila["url_imagen"], $fila["id_tipo_p"]);
+			                                                                        
             return $producto;
         }
         $this->cerrarConexion($conexion);        
@@ -46,10 +46,11 @@ public function insertarProducto($nombre, $descripcion, $precio, $url, $tipo) {
         return $registroExitoso;
     }
 
-    public function actualizarProducto($id_producto, $nombre, $descripcion, $precio, $url, $tipo) {
+    public function actualizarProducto($id_producto, $nombre, $descripcion, $precio) {
         $conexion = $this->abrirConexion();        
         $sentencia = "UPDATE productos SET  nombre_producto ='" . $nombre . "', descripcion ='" .$descripcion. "',
-            precio_unitario = '" . $precio. "', url_imagen ='". $url . "', id_tipo_p ='" . $tipo . "'  WHERE id_producto = " . $id_producto . "  ";
+            precio_unitario = '" . $precio. "' WHERE id_producto = " . $id_producto . "  ";
+        
         
         $resultado = $this->ejecutarConsulta($sentencia, $conexion);
         $this->cerrarConexion($conexion);

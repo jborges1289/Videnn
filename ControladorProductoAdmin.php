@@ -1,5 +1,6 @@
 <?php
 include_once 'Servicios/ServicioProductoAdmin.php';
+include_once '../videnn/Producto.php';
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -107,18 +108,9 @@ class ControladorProductoAdmin {
 //        }
     }
 
-    function actualizarProductoC() {
-            $nombre = $_POST["nombre"];
-            $descripcion = $_POST["descripcion"];
-            $precio = $_POST["precio"];
-            $url = $_POST["url"];
-            $servicioProducto = new ServicioProducto();
-            if ($servicioProducto->actualizarProducto($nombre, $descripcion, $precio, $url)) {
-                $msj = "<div class='exito'>Se completo correctamente la actualizacion :)</div>";
-            } else {
-                $msj = "<div class='error'>Error al intentar actualizar :(</div>";
-            }
-            return $msj;
+    function actualizarProductoC($id, $nombre, $descripcion, $precio) {
+            $servicioProductoAdmin = new ServicioProductoAdmin();
+            return $servicioProductoAdmin->actualizarProducto($id, $nombre, $descripcion, $precio);
     }
 
 //    function eliminarProductoC() {
@@ -140,7 +132,7 @@ class ControladorProductoAdmin {
       
         foreach ($productos as $producto) {
             
-         $SALTO = "\n";
+        
         
             $id2 = "info";
             
@@ -444,39 +436,6 @@ function catalogoProductosLonas() {
 }
 $controladorProducto = new ControladorProductoAdmin();
 echo trim($controladorProducto->agregarProductoC());
-    
-    
 
 
-//?>
-<!--rc="images/borrar.png" alt="Borrar"/></a></td>' . $SALTO;*/-->
-            
-
-<!--/*           echo $id_producto = $producto->getId_producto();-->
-            <!--$cadena_post .='               	<td class="borrar"><button class="btn btn-danger" type="submit" name="eliminar_producto" onclick = "' .  $this->eliminarProductoC(mysql_real_escape_string($id_producto)) . '" ><i class="icon-remove icon-white"></i> Borrar</button> ' . '</td>' . $SALTO;*/-->
-
-
-            
-<!--/*            $cadena_post .='               	<td class="borrar"><button class="btn btn-danger" type="submit" name="borrar"><i class="icon-remove icon-white"></i> Borrar</button>
->>>>>>> 5e3886b5ca501496899b68a55f39e1587483bfab
-            </td>' . $SALTO;*/-->
-            
-            
-<!--            $cadena_post .='            </tr>' . $SALTO;
-            $index++;
-        }
-        if ($cadena_post == "") {
-            $cadena_post .="<tr><td colspan='4'>No hay productos registrados</td></tr>" . $SALTO;
-        }
-        return $cadena_post;
-    }
-    
-    
-}
-$controladorProducto = new ControladorProductoAdmin();
-echo trim($controladorProducto->agregarProductoC());-->
-    
-    
-
-
-<!--?>-->
+?>

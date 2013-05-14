@@ -15,15 +15,9 @@ class ServicioProductoAdmin {
     
     
     
-    public function actualizarProducto($id_producto, $nombre, $descripcion, $precio, $url) {
-        $productoDAOAdmin = new ProductoDAO();
-        $exito = $productoDAOAdmin->actualizarProducto($id_producto, $nombre, $descripcion, $precio, $url);
-        
-        if ($exito) {
-            return true;
-        } else {
-            return false;
-        }
+    public function actualizarProducto($id, $nombre, $descripcion, $precio) {
+        $productoDAOAdmin = new ProductoDAOAdmin();
+        return $productoDAOAdmin->actualizarProducto($id, $nombre, $descripcion, $precio);
     }
 
     public function eliminarProducto($id_producto) {
