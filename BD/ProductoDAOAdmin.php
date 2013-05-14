@@ -13,7 +13,7 @@
  *
  * @author juAN
  */
-class ProductoDAO extends ConexionGeneral{
+class ProductoDAOAdmin extends ConexionGeneral{
     //put your code here
 
     
@@ -78,7 +78,7 @@ public function insertarProducto($nombre, $descripcion, $precio, $url, $tipo) {
         return $productos;
     }
 
-    public function eliminarProducto($id_producto) {
+    public function eliminarProductoAdmin($id_producto) {
         $conexion = $this->abrirConexion();
         $productoEliminado = false;
         $sentencia = "DELETE FROM productos 

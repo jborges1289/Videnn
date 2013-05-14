@@ -10,7 +10,7 @@ include_once 'Servicios/ServicioProductoAdmin.php';
  *
  * @author juAN
  */
-class ControladorProducto {
+class ControladorProductoAdmin {
     //put your code 
     
      function agregarProductoC() {
@@ -95,19 +95,19 @@ class ControladorProducto {
 
         function obtenerProductosPorOrdenIdC() {
 //        if (isset($_POST["obtener_productos"]) && $_POST["obtener_productos"] == "obtener") {
-            $servicioProducto = new ServicioProducto();
+            $servicioProducto = new ServicioProductoAdmin();
             return $servicioProducto->obtenerTodosProductosOrdenId();
 //        }
     }
 
     
     
-    function eliminarProductoC() {
-        if (isset($_POST["eliminar_producto"]) && $_POST["eliminar_producto"] == "eliminar") {
-            $nombre = $_POST["id_producto"];
-            $servicioProducto = new ServicioProducto();
-            return $servicioProducto->eliminarProducto($nombre);
-        }
+    function eliminarProductoC($id_producto) {
+//        if (isset($_POST["eliminar_producto"]) && $_POST["eliminar_producto"] == "eliminar") {
+            
+            $servicioProducto = new ServicioProductoAdmin();
+            return $servicioProducto->eliminarProducto($id_producto);
+//        }
     }
 
     function actualizarProductoC() {
@@ -407,7 +407,7 @@ function catalogoProductosLonas() {
        $SALTO = "\n";
         $cadena_post = "";
         $index = 1;
-        $productoDAO = new productoDAO();
+        
         foreach ($productos as $producto) {
             $class = "";
             if ($index % 2 == 0)
@@ -419,8 +419,8 @@ function catalogoProductosLonas() {
             $cadena_post .='                <td>' . $producto->getPrecio_unitario() . '</td>' . $SALTO;
 //            $cadena_post .='                <td>' . $producto->getIdUsuario() . '</td>' . $SALTO;
 //            $cadena_post .='                <td>' . $producto->getContrasena() . '</td>' . $SALTO;
-
-            $cadena_post .='               	<td class="borrar"><button class="btn btn-danger" type="submit" name="borrar" onclick = " ' . $productoDAO->eliminarProducto($producto->getId_producto()) . '"><i class="icon-remove icon-white"></i> Borrar</button>
+           echo $id_producto = $producto->getId_producto();
+            $cadena_post .='               	<td class="borrar"><button class="btn btn-danger" type="submit" name="eliminar_producto" onclick = "' .  $this->eliminarProductoC(mysql_real_escape_string($id_producto)). '"><i class="icon-remove icon-white"></i> Borrar</button>
             </td>' . $SALTO;
             
             
@@ -438,7 +438,7 @@ function catalogoProductosLonas() {
     
     
 }
-$controladorProducto = new ControladorProducto();
+$controladorProducto = new ControladorProductoAdmin();
 echo trim($controladorProducto->agregarProductoC());
     
     

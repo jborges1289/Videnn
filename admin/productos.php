@@ -26,7 +26,7 @@ if(isset($_SESSION['views'])) {
                 
                   <?php
         include_once '../ControladorProductoAdmin.php';  
-        $TablaProductos = new ControladorProducto();
+        $TablaProductos = new ControladorProductoAdmin();
       echo  $TablaProductos->tablaProductos();
         
         ?>
