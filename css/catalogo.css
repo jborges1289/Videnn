@@ -63,12 +63,13 @@
 
 
 #footer, th{
-    opacity: .85;
+   
     background-color:  #D9D9D9;
     border-radius: 10px;
     padding: 10px 10px 10px 10px;
     margin-top: 100px;
     width: 700px;
+    
     
     
     

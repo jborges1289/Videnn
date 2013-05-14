@@ -49,6 +49,9 @@
         <?php
        $encabezadoNosotros = new gestor_de_plantillaNosotros();
        echo $encabezadoNosotros->generarLogo();
+       
+       
+        
         ?>
     </div>
 </body>
