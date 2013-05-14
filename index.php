@@ -59,7 +59,7 @@
 			 <div class="info" >
 				<a class="hideshow" href="#" >Ocultar</a>
 				<h2><a href="#" >Botones para esas ocaciones especiales</a></h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tincidunt condimentum lacus. Pellentesque ut diam....<a href="#" >read more</a></p>
+				<p>Realiza tus pines con nosotros para tus eventos importantes.</p>
 			 </div>
 	    </div>
 
@@ -69,7 +69,7 @@
 			 <div class="info" >
 				<a class="hideshow" href="#" >Ocultar</a>
 				<h2><a href="#" >Espectaculares para darte a conocer</a></h2>
-				<p>Vestibulum leo quam, accumsan nec porttitor a, euismod ac tortor. Sed ipsum lorem, sagittis non egestas id, suscipit....<a href="#" >read more</a></p>
+				<p>¿Quieres dar a conocer tu empresa? haz tus Espectaculares con Videnn y obten la mejor calidad.</p>
 			 </div>
 	    </div>
 
@@ -79,7 +79,7 @@
 			 <div class="info" >
 				<a class="hideshow" href="#" >Ocultar</a>
 				<h2><a href="#" >Los mejores diseños para las lonas que desees</a></h2>
-				<p>liquam erat volutpat. Proin id volutpat nisi. Nulla facilisi. Curabitur facilisis sollicitudin ornare....<a href="#" >read more</a></p>
+				<p> Las lonas que desees al mejor precio con Videnn.</p>
 	         </div>
 	    </div>
 
@@ -89,7 +89,7 @@
 			 <div class="info" >
 				<a class="hideshow" href="#" >Ocultar</a>
 				<h2><a href="#" >Expande tu negocio con volantes u otros medios</a></h2>
-				<p>Quisque sed orci ut lacus viverra interdum ornare sed est. Donec porta, erat eu pretium luctus, leo augue sodales....<a href="#" >read more</a></p>
+				<p>Da a conocer tu negocio!! haz tus volantes, notas, facturas con Videnn</p>
 	         </div>
 	    </div>
 
