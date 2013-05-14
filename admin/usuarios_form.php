@@ -11,21 +11,24 @@ if(isset($_SESSION['views'])) {
 
 $titulo = 'Creación de un nuevo elemento de usuarios';
 $intro = 'Llene el siguiente formulario para crear el registro de un nuevo elemento de usuarios.';
+
+
+if(isset($_POST['registrarse'])) {
+
+	include 'includes/funciones.php';
+
 $nombre = $_POST['nombre'];
 $usuario = $_POST['usuario']; 
 $contrasenia = $_POST['contrasenia'];
-$registro = $_POST['registrarse'];
-
-if(isset($registro)) {
-
-	include 'includes/funciones.php';
 
 	if (isset($nombre) && isset($usuario) && isset($contrasenia)) {
 		$usuarioDAO = new UsuarioDAO();
 		$usuarioDAO -> insertarUsuario($nombre, $usuario, $contrasenia);		
-		header("Location: ./?modulo=usuarios");
+		echo '<script languaje="javascript"> alert("Agregado exitoso.")</script>';
+		header("Refresh: 0; url=./?modulo=usuarios");
 	} else {
-		echo 'Fallo el agregado.';
+		echo '<script languaje="javascript"> alert("Fallo el agregado.")</script>';
+		header("Refresh: 0; url=./?modulo=usuarios");
 	}
 
 }
@@ -35,22 +38,21 @@ if(isset($registro)) {
 	<fieldset>
 		<div class="control-group span12">
 			<label for="nombre" class="control-label">Nombre</label>
-			<div class="controls"><input type="text" name="nombre" id="nombre" value="<?=$d[nombre]?>" class="input-xlarge required" /></div>
+			<div class="controls"><input type="text" name="nombre" id="nombre" value="" class="input-xlarge required" /></div>
 		</div>
 		<div class="control-group span12">
 			<label for="genero" class="control-label">Usuario</label>
-			<div class="controls"><input type="text" name="usuario" id="usuario" value="<?=$d[usuario]?>" class="input-xlarge required" /></div>
+			<div class="controls"><input type="text" name="usuario" id="usuario" value="" class="input-xlarge required" /></div>
 		</div>
 		<div class="control-group span12">
 			<label for="genero" class="control-label">Contraseña</label>
-			<div class="controls"><input type="password" name="contrasenia" id="contrasenia" value="<?=$d[contrasenia]?>" class="input-xlarge required" /></div>
+			<div class="controls"><input type="password" name="contrasenia" id="contrasenia" value="" class="input-xlarge required" /></div>
 		</div>		
 		<div class="form-actions btn-group span7">
 			<a class="btn btn-danger" href="?modulo=usuarios"><i class="icon-remove icon-white"></i> Cancelar</a>
 			<button class="btn btn-primary" type="submit" name="registrarse"><i class="icon-ok icon-white"></i> Registrar</button>
 		</div>
 	</fieldset>
-  <input type="hidden" name="identificador" value="<?=$_GET[id]?>" />
 </form>
 <script language="javascript" type="text/javascript">
 $("#form1").submit(function(){
@@ -80,8 +82,8 @@ $("#form1").submit(function(){
 </script>
 <?php
 } else {
-	echo "No session Started. Redirecting to index in 3 seconds.";
- 	header("Refresh: 3; url=../index.php");
+	echo '<script languaje="javascript"> alert("No ha iniciado sesion. Por favor inicie sesion.")</script>';
+	header("Refresh: 0; url=../index.php");
 }
 ?>
 <? ob_flush(); ?>

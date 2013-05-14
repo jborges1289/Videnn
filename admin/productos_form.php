@@ -10,6 +10,12 @@ if(isset($_SESSION['views'])) {
 
 $titulo = 'Creación de un nuevo elemento de productos';
 $intro = 'Llene el siguiente formulario para crear el registro de un nuevo elemento de productos.';
+
+
+if(isset($_POST['registrarse'])) {
+
+	include 'includes/funciones.php';
+
 $nombre = $_POST['nombre'];
 $descripcion = $_POST['descripcion']; 
 $precio = $_POST['precio'];
@@ -40,19 +46,15 @@ $uploaddir = '../img/offset/';
 
 $uploading =  move_uploaded_file($tmp_name, $uploaddir . $url_name); 
 $url = $uploaddir . $url_name;
-$registro = $_POST['registrarse'];
-
-
-if(isset($registro)) {
-
-	include 'includes/funciones.php';
 
 	if (isset($nombre) && isset($descripcion) && isset($precio) && $uploading) {
 		$ProductoDAOAdmin = new ProductoDAOAdmin();
 		$ProductoDAOAdmin -> insertarProducto($nombre, $descripcion, $precio, $url, $tipo);
-		header("Location: ./?modulo=productos");
+		echo '<script languaje="javascript"> alert("Agregado exitoso.")</script>';
+		header("Refresh: 0; url=./?modulo=productos");
 	} else {
-		echo 'Fallo el agregado.';
+		echo '<script languaje="javascript"> alert("Fallo el agregado.")</script>';
+		header("Refresh: 0; url=./?modulo=productos");
 	}
 
 }
@@ -63,15 +65,15 @@ if(isset($registro)) {
 	<fieldset>
 		<div class="control-group span12">
 			<label for="nombre" class="control-label">Nombre:</label>
-			<div class="controls"><input type="text" name="nombre" id="nombre" value="<?=$d[nombre]?>" class="input-xlarge required" /></div>
+			<div class="controls"><input type="text" name="nombre" id="nombre" value="" class="input-xlarge required" /></div>
 		</div>
 		<div class="control-group">
 			<label for="descripcion" class="control-label">Descripción:</label>
-      <div class="controls"><textarea name="descripcion" id="descripcion" rows="3" class="input-xlarge required"><?=$d[descripcion]?></textarea></div>
+      <div class="controls"><textarea name="descripcion" id="descripcion" rows="3" class="input-xlarge required"></textarea></div>
     </div>
 		<div class="control-group span12">
 			<label for="precio" class="control-label">Precio:</label>
-			<div class="controls"><input type="text" name="precio" id="precio" value="<?=$d[precio]?>" class="input-xlarge required" /></div>
+			<div class="controls"><input type="text" name="precio" id="precio" value="" class="input-xlarge required" /></div>
 		</div>
 		<div class="control-group">
 			<label for="imagen" class="control-label">Imagen</label>
@@ -80,7 +82,6 @@ if(isset($registro)) {
 			</div>
 		<div class="control-group span12">
 			<label for="tipo" class="control-label">Tipo:</label>
-			<!--<div class="controls"><input type="text" name="tipo" id="tipo" value="<?=$d[tipo]?>" class="input-xlarge required" /></div>-->
 			<div class="controls">
 			<select name="tipo">
 				<option>1 Botones</option>
@@ -97,7 +98,6 @@ if(isset($registro)) {
 			<button class="btn btn-primary" type="submit" name="registrarse" ><i class="icon-ok icon-white"></i> Registrar</button>
 		</div>
 	</fieldset>
-  <input type="hidden" name="identificador" value="<?=$_GET[id]?>" />
 </form>
 <script language="javascript" type="text/javascript">
 $("#form1").submit(function(){
@@ -127,8 +127,8 @@ $("#form1").submit(function(){
 </script>
 <?php
 } else {
-	echo "No session Started. Redirecting to index in 3 seconds.";
- 	header("Refresh: 3; url=../index.php");
+	echo '<script languaje="javascript"> alert("No ha iniciado sesion. Por favor inicie sesion.")</script>';
+	header("Refresh: 0; url=../index.php");
 }
 ?>
 <? ob_flush(); ?>

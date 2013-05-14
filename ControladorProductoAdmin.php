@@ -426,7 +426,7 @@ function catalogoProductosLonas() {
 
             $cadena_post .='               	<td class="borrar">
             
-            <form method="post" action="eliminado.php">
+            <form method="post" action="eliminadoProducto.php">
             	<input type="hidden" name="varname" value="' . $producto->getId_producto() .'"> 	
             	<button class="btn btn-danger" type="submit" name="borrar"><i class="icon-remove icon-white"></i> Borrar</button>
             </form>

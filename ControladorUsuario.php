@@ -47,12 +47,9 @@ class ControladorUsuario {
         }
     }
 
-    function eliminarUsuarioC() {
-        if (isset($_POST["eliminar_profesor"]) && $_POST["eliminar_profesor"] == "eliminar") {
-            $id_usuario = $_POST["id_usuario"];
+    function eliminarUsuarioC($id_usuario) {
             $servicioUsuario = new ServicioUsuario();
             return $servicioUsuario->eliminarUsuario($id_usuario);
-        }
     }
 
     function actualizarUsuarioC() {
@@ -111,7 +108,14 @@ function tablaUsuarios() {
 //            $cadena_post .='                <td>' . $usuario->getIdUsuario() . '</td>' . $SALTO;
 //            $cadena_post .='                <td>' . $usuario->getContrasena() . '</td>' . $SALTO;
 
-            $cadena_post .='               	<td class="borrar"><a onclick = "confirmarEliminacionUsuario(' . $usuario->setId_Usuario($id_usuario) . ')" href="#"><img src="img/utileria/borrar.png" alt="Borrar"/></a></td>' . $SALTO;
+            $cadena_post .='               	<td class="borrar">
+            
+            <form method="post" action="eliminadoUsuario.php">
+            	<input type="hidden" name="varname" value="' . $usuario->getId_Usuario() .'"> 	
+            	<button class="btn btn-danger" type="submit" name="borrar"><i class="icon-remove icon-white"></i> Borrar</button>
+            </form>
+            </td>' . $SALTO;           
+
 
             $cadena_post .='            </tr>' . $SALTO;
             $index++;
