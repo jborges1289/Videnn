@@ -24,10 +24,10 @@ class Producto {
 
         $this->id_producto = $id_producto;
         $this->nombre_producto = $nombre_producto;
-        $this->desc_producto =$desc_producto;
+        $this->descripcion =$desc_producto;
         $this->precio_unitario = $precio_unitario;
-        $this->url = $url;
-        $this->tipo = $tipo;
+        $this->url_imagen = $url;
+        $this->id_tipo_p = $tipo;
         
 }
     
@@ -44,7 +44,7 @@ class Producto {
 
  public function getDesc_producto(){
      
-     return $this->desc_producto;
+     return $this->descripcion;
  }
     
  public function getPrecio_unitario(){
@@ -54,13 +54,13 @@ class Producto {
  
  public function getUrl(){
      
-     return $this->url;
+     return $this->url_imagen;
  }
 
  
  public function getTipo(){
      
-     return $this->tipo;
+     return $this->id_tipo_p;
  }
  
  
@@ -79,7 +79,7 @@ public function setNombre_Producto($nombre_producto){
 
  public function setDesc_producto($desc_producto){
      
-     $this->desc_producto = $desc_producto;
+     $this->descripcion = $desc_producto;
      
  }
  
@@ -92,11 +92,11 @@ public function setNombre_Producto($nombre_producto){
  
  public function setUrl($url){
      
-     $this->url = $url;
+     $this->url_imagen = $url;
  }
  
  public function setTipo($tipo){
-     $this->tipo = $tipo;
+     $this->id_tipo_p = $tipo;
  }
  
 }

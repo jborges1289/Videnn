@@ -33,12 +33,9 @@ class ControladorProductoAdmin {
     
     
 
-    function obtenerProductoC() {
-        if (isset($_POST["obtener_producto"]) && $_POST["obtener_producto"] == "obtener") {
-            $nombre = $_POST["nombre"];
+    function obtenerProductoC($id_producto) {
             $servicioProductoAdmin = new ServicioProductoAdmin();
-            return $servicioProductoAdmin->buscarProductoPorNombre($nombre);
-        }
+            return $servicioProductoAdmin->buscarProductoPorId($id_producto);
         }
     
       
@@ -111,7 +108,6 @@ class ControladorProductoAdmin {
     }
 
     function actualizarProductoC() {
-        if (isset($_POST["actualizar_usuario"]) && $_POST["actualizar_usuario"] == "actualizar") {
             $nombre = $_POST["nombre"];
             $descripcion = $_POST["descripcion"];
             $precio = $_POST["precio"];
@@ -123,7 +119,6 @@ class ControladorProductoAdmin {
                 $msj = "<div class='error'>Error al intentar actualizar :(</div>";
             }
             return $msj;
-        }
     }
 
 //    function eliminarProductoC() {
@@ -417,23 +412,44 @@ function catalogoProductosLonas() {
             $cadena_post .='                <td>' . $producto->getNombre_Producto() . '</td>' . $SALTO;
             $cadena_post .='                <td>' . $producto->getDesc_producto() . '</td>' . $SALTO;
             $cadena_post .='                <td>' . $producto->getPrecio_unitario() . '</td>' . $SALTO;
-//            $cadena_post .='                <td>' . $producto->getIdUsuario() . '</td>' . $SALTO;
-//            $cadena_post .='                <td>' . $producto->getContrasena() . '</td>' . $SALTO;
-
-/*            $cadena_post .='               	<td class="borrar"><button class="btn btn-danger" type="submit" name="borrar" onclick = " ' . $productoDAO->eliminarProducto($producto->getId_producto()) . '"><i class="icon-remove icon-white"></i> Borrar</button>
-            </td>' . $SALTO;*/
             
-
             $cadena_post .='               	<td class="borrar">
-            
+
+            <form method="post" action="productos_form_actualizar.php">
+            	<input type="hidden" name="varname" value="' . $producto->getId_producto() .'">	
+
+            	<button class="btn btn-primary" type="submit" name="editar"><i class="icon-edit icon-white"></i> Editar</button>
+            </form>            
+
+
             <form method="post" action="eliminadoProducto.php">
             	<input type="hidden" name="varname" value="' . $producto->getId_producto() .'"> 	
             	<button class="btn btn-danger" type="submit" name="borrar"><i class="icon-remove icon-white"></i> Borrar</button>
             </form>
-            </td>' . $SALTO;           
             
+            </td>' . $SALTO;           
+
+/*            	<a class="btn btn-primary" href="./?modulo=productos_form_actualizar" name="editar">Editar</a> */           
                         
-/*            <a onclick = "confirmarEliminacionUsuario(' . $producto->getId_producto() . ')" href="#"><img src="images/borrar.png" alt="Borrar"/></a></td>' . $SALTO;*/
+            $cadena_post .='            </tr>' . $SALTO;
+            $index++;
+        }
+        if ($cadena_post == "") {
+            $cadena_post .="<tr><td colspan='4'>No hay productos registrados</td></tr>" . $SALTO;
+        }
+        return $cadena_post;
+    }
+    
+    
+}
+$controladorProducto = new ControladorProductoAdmin();
+echo trim($controladorProducto->agregarProductoC());
+    
+    
+
+
+?>
+rc="images/borrar.png" alt="Borrar"/></a></td>' . $SALTO;*/
             
 
 /*           echo $id_producto = $producto->getId_producto();

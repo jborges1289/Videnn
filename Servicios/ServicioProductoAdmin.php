@@ -48,9 +48,9 @@ class ServicioProductoAdmin {
         }
     }
 
-    public function buscarProductoPorNombre($nombre) {
-        $productoDAOAdmin = new ProductoDAO();
-        return $productoDAOAdmin->seleccionarProductoPorNombre($nombre);
+    public function buscarProductoPorId($id_producto) {
+        $productoDAOAdmin = new ProductoDAOAdmin();
+        return $productoDAOAdmin->seleccionarProductoPorId($id_producto);
     }
 
     public function obtenerTodosProductos() {
