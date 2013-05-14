@@ -20,8 +20,8 @@ class ControladorProductoAdmin {
             $descripcion = $_POST["descripcion"];
             $precio = $_POST["precio"];
             $url = $_POST["url"];
-            $servicioProducto = new ServicioProducto();
-            if ($servicioProducto->agregarProducto($nombre, $descripcion, $precio, $url)) {
+            $servicioProductoAdmin = new ServicioProductoAdmin();
+            if ($servicioProductoAdmin->agregarProducto($nombre, $descripcion, $precio, $url)) {
                 return "TRUE";
             } else {
               
@@ -36,8 +36,8 @@ class ControladorProductoAdmin {
     function obtenerProductoC() {
         if (isset($_POST["obtener_producto"]) && $_POST["obtener_producto"] == "obtener") {
             $nombre = $_POST["nombre"];
-            $servicioProducto = new ServicioProducto();
-            return $servicioProducto->buscarProductoPorNombre($nombre);
+            $servicioProductoAdmin = new ServicioProductoAdmin();
+            return $servicioProductoAdmin->buscarProductoPorNombre($nombre);
         }
         }
     
@@ -419,22 +419,33 @@ function catalogoProductosLonas() {
             $cadena_post .='                <td>' . $producto->getPrecio_unitario() . '</td>' . $SALTO;
 //            $cadena_post .='                <td>' . $producto->getIdUsuario() . '</td>' . $SALTO;
 //            $cadena_post .='                <td>' . $producto->getContrasena() . '</td>' . $SALTO;
-<<<<<<< HEAD
-           echo $id_producto = $producto->getId_producto();
-            $cadena_post .='               	<td class="borrar"><button class="btn btn-danger" type="submit" name="eliminar_producto" onclick = "' .  $this->eliminarProductoC(mysql_real_escape_string($id_producto)). '"><i class="icon-remove icon-white"></i> Borrar</button>
-=======
 
 /*            $cadena_post .='               	<td class="borrar"><button class="btn btn-danger" type="submit" name="borrar" onclick = " ' . $productoDAO->eliminarProducto($producto->getId_producto()) . '"><i class="icon-remove icon-white"></i> Borrar</button>
             </td>' . $SALTO;*/
             
-            $cadena_post .='               	<td class="borrar"><button class="btn btn-danger" type="submit" name="borrar"><i class="icon-remove icon-white"></i> Borrar</button>
->>>>>>> 5e3886b5ca501496899b68a55f39e1587483bfab
-            </td>' . $SALTO;
-            
-            
-            
-/*            <a onclick = "confirmarEliminacionUsuario(' . $producto->getId_producto() . ')" href="#"><img src="images/borrar.png" alt="Borrar"/></a></td>' . $SALTO;*/
 
+            $cadena_post .='               	<td class="borrar">
+            
+            <form method="post" action="eliminado.php">
+            	<input type="hidden" name="varname" value="' . $producto->getId_producto() .'"> 	
+            	<button class="btn btn-danger" type="submit" name="borrar"><i class="icon-remove icon-white"></i> Borrar</button>
+            </form>
+            </td>' . $SALTO;           
+            
+                        
+/*            <a onclick = "confirmarEliminacionUsuario(' . $producto->getId_producto() . ')" href="#"><img src="images/borrar.png" alt="Borrar"/></a></td>' . $SALTO;*/
+            
+
+/*           echo $id_producto = $producto->getId_producto();
+            $cadena_post .='               	<td class="borrar"><button class="btn btn-danger" type="submit" name="eliminar_producto" onclick = "' .  $this->eliminarProductoC(mysql_real_escape_string($id_producto)) . '" ><i class="icon-remove icon-white"></i> Borrar</button> ' . '</td>' . $SALTO;*/
+
+
+            
+/*            $cadena_post .='               	<td class="borrar"><button class="btn btn-danger" type="submit" name="borrar"><i class="icon-remove icon-white"></i> Borrar</button>
+>>>>>>> 5e3886b5ca501496899b68a55f39e1587483bfab
+            </td>' . $SALTO;*/
+            
+            
             $cadena_post .='            </tr>' . $SALTO;
             $index++;
         }

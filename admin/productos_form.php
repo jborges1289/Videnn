@@ -48,8 +48,8 @@ if(isset($registro)) {
 	include 'includes/funciones.php';
 
 	if (isset($nombre) && isset($descripcion) && isset($precio) && $uploading) {
-		$ProductoDAO = new ProductoDAO();
-		$ProductoDAO -> insertarProducto($nombre, $descripcion, $precio, $url, $tipo);
+		$ProductoDAOAdmin = new ProductoDAOAdmin();
+		$ProductoDAOAdmin -> insertarProducto($nombre, $descripcion, $precio, $url, $tipo);
 		header("Location: ./?modulo=productos");
 	} else {
 		echo 'Fallo el agregado.';
