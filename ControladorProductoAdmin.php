@@ -140,7 +140,7 @@ class ControladorProductoAdmin {
       
         foreach ($productos as $producto) {
             
-        
+         $SALTO = "\n";
         
             $id2 = "info";
             
@@ -448,21 +448,21 @@ echo trim($controladorProducto->agregarProductoC());
     
 
 
-?>
-rc="images/borrar.png" alt="Borrar"/></a></td>' . $SALTO;*/
+//?>
+<!--rc="images/borrar.png" alt="Borrar"/></a></td>' . $SALTO;*/-->
             
 
-/*           echo $id_producto = $producto->getId_producto();
-            $cadena_post .='               	<td class="borrar"><button class="btn btn-danger" type="submit" name="eliminar_producto" onclick = "' .  $this->eliminarProductoC(mysql_real_escape_string($id_producto)) . '" ><i class="icon-remove icon-white"></i> Borrar</button> ' . '</td>' . $SALTO;*/
+<!--/*           echo $id_producto = $producto->getId_producto();-->
+            <!--$cadena_post .='               	<td class="borrar"><button class="btn btn-danger" type="submit" name="eliminar_producto" onclick = "' .  $this->eliminarProductoC(mysql_real_escape_string($id_producto)) . '" ><i class="icon-remove icon-white"></i> Borrar</button> ' . '</td>' . $SALTO;*/-->
 
 
             
-/*            $cadena_post .='               	<td class="borrar"><button class="btn btn-danger" type="submit" name="borrar"><i class="icon-remove icon-white"></i> Borrar</button>
+<!--/*            $cadena_post .='               	<td class="borrar"><button class="btn btn-danger" type="submit" name="borrar"><i class="icon-remove icon-white"></i> Borrar</button>
 >>>>>>> 5e3886b5ca501496899b68a55f39e1587483bfab
-            </td>' . $SALTO;*/
+            </td>' . $SALTO;*/-->
             
             
-            $cadena_post .='            </tr>' . $SALTO;
+<!--            $cadena_post .='            </tr>' . $SALTO;
             $index++;
         }
         if ($cadena_post == "") {
@@ -474,9 +474,9 @@ rc="images/borrar.png" alt="Borrar"/></a></td>' . $SALTO;*/
     
 }
 $controladorProducto = new ControladorProductoAdmin();
-echo trim($controladorProducto->agregarProductoC());
+echo trim($controladorProducto->agregarProductoC());-->
     
     
 
 
-?>
+<!--?>-->

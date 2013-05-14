@@ -146,7 +146,7 @@ class ControladorProducto {
         foreach ($productos as $producto) {
             
         
-        
+         $SALTO = "\n";
             $id2 = "info";
             
             $cadena_post .= ' <div id = "'.$id2.'"> ' .  $SALTO;
