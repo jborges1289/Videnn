@@ -17,12 +17,10 @@ class ProductoDAOAdmin extends ConexionGeneral{
     //put your code here
 
     
-     public function seleccionarProductoPorNombre($nombre) {
+     public function seleccionarProductoPorId($id_producto) {
         $conexion=$this->abrirConexion();        
-        $sql = "SELECT * FROM productos WHERE nombre_producto ='" . mysql_real_escape_string($nombre) . "'";
-       echo $sql;
+        $sql = "SELECT * FROM productos WHERE id_producto ='" . $id_producto . "'";
         $resultado = $this->ejecutarConsulta($sql, $conexion);
-        
         
         $producto=null;
         while ($fila = mysql_fetch_array($resultado)) {
@@ -48,10 +46,10 @@ public function insertarProducto($nombre, $descripcion, $precio, $url, $tipo) {
         return $registroExitoso;
     }
 
-    public function actualizarProducto($id_producto, $nombre, $descripcion, $precio, $url) {
+    public function actualizarProducto($id_producto, $nombre, $descripcion, $precio, $url, $tipo) {
         $conexion = $this->abrirConexion();        
         $sentencia = "UPDATE productos SET  nombre_producto ='" . $nombre . "', descripcion ='" .$descripcion. "',
-            precio_unitario = '" . $precio. "', url_imagen ='". $url ."' WHERE id_producto = " . $id_producto . "  ";
+            precio_unitario = '" . $precio. "', url_imagen ='". $url . "', id_tipo_p ='" . $tipo . "'  WHERE id_producto = " . $id_producto . "  ";
         
         $resultado = $this->ejecutarConsulta($sentencia, $conexion);
         $this->cerrarConexion($conexion);
@@ -115,7 +113,7 @@ public function insertarProducto($nombre, $descripcion, $precio, $url, $tipo) {
         return $existeProducto;
     }
     
-    public function buscarProducto($texto){
+    public function buscarProducto($id_producto){
 		$conexion = $this->abrirConexion();
 		$sql = "SELECT * FROM productos e WHERE e.nombre_producto LIKE '%".$texto."%'";
 		$resultado = $this->ejecutarConsulta($sql, $conexion);

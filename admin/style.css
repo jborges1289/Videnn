@@ -99,6 +99,12 @@ H2
 {
 	font-weight: bold;
 }
+
+.borrar form {
+	float: left;
+	margin-right: 10px;
+}
+
 #form1.form-horizontal .control-group .control-label
 {
 	/*[disabled]width:180px;*/
